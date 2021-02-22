@@ -1,0 +1,6 @@
+name: SlimefunItemExpansion
+version: ${project.version}
+main: com.wlyscraft.slimefunitemexpansion.SlimefunItemExpansion
+api-version: 1.16
+depend: ['Slimefun']
+authors: [wlys]
