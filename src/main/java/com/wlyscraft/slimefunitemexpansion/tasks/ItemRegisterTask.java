@@ -1,8 +1,8 @@
 package com.wlyscraft.slimefunitemexpansion.tasks;
 
-import com.wlyscraft.slimefunitemexpansion.Drill;
+import com.wlyscraft.slimefunitemexpansion.items.Drill;
 import com.wlyscraft.slimefunitemexpansion.Items;
-import com.wlyscraft.slimefunitemexpansion.MouseTail;
+import com.wlyscraft.slimefunitemexpansion.items.MouseTail;
 import com.wlyscraft.slimefunitemexpansion.SlimefunItemExpansion;
 import com.wlyscraft.slimefunitemexpansion.utils.SfUtils;
 import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler;

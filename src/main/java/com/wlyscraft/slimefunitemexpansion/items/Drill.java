@@ -1,4 +1,4 @@
-package com.wlyscraft.slimefunitemexpansion;
+package com.wlyscraft.slimefunitemexpansion.items;
 
 import io.github.thebusybiscuit.slimefun4.core.attributes.Rechargeable;
 import io.github.thebusybiscuit.slimefun4.core.handlers.ToolUseHandler;

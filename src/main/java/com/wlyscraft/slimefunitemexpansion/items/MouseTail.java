@@ -1,4 +1,4 @@
-package com.wlyscraft.slimefunitemexpansion;
+package com.wlyscraft.slimefunitemexpansion.items;
 
 import io.github.thebusybiscuit.slimefun4.api.events.PlayerRightClickEvent;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemSetting;
