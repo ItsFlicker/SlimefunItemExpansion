@@ -49,8 +49,8 @@ public class AlloyFurnace extends AContainer implements RecipeDisplayItem {
     @Override
     public void registerDefaultRecipes() {
         this.registerRecipe(1, new ItemStack[]{new CustomItem(Material.KNOWLEDGE_BOOK, "§b配方表", "§b1圆石齿轮+1铁锭=1铁齿轮", "§b1沙子+1金粉=1金锭(原版)")}, new ItemStack[]{new CustomItem(Material.KNOWLEDGE_BOOK, "§b配方表", "§b1圆石齿轮+1铁锭=1铁齿轮", "§b1沙子+1金粉=1金锭(原版)")});
-        this.registerRecipe(4, new ItemStack[]{Items.COBBLESTONE_GEAR, new ItemStack(Material.IRON_INGOT)}, new ItemStack[]{Items.IRON_GEAR});
-        this.registerRecipe(1, new ItemStack[]{new ItemStack(Material.SAND), SlimefunItems.GOLD_DUST}, new ItemStack[]{new ItemStack(Material.GOLD_INGOT)});
+        this.registerRecipe(8, new ItemStack[]{Items.COBBLESTONE_GEAR, new ItemStack(Material.IRON_INGOT)}, new ItemStack[]{Items.IRON_GEAR});
+        this.registerRecipe(5, new ItemStack[]{new ItemStack(Material.SAND), SlimefunItems.GOLD_DUST}, new ItemStack[]{new ItemStack(Material.GOLD_INGOT)});
     }
 
 }
