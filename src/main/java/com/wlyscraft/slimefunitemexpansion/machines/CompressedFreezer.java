@@ -21,7 +21,7 @@ public class CompressedFreezer extends AContainer implements RecipeDisplayItem{
 
     @Override
     protected void registerDefaultRecipes() {
-        registerRecipe(15, new ItemStack[] { new ItemStack(Material.WATER_BUCKET) }, new ItemStack[] { new ItemStack(Material.BUCKET), new ItemStack(SlimefunItems.REACTOR_COOLANT_CELL) });
+        registerRecipe(20, new ItemStack[] { new ItemStack(Material.WATER_BUCKET) }, new ItemStack[] { new ItemStack(Material.BUCKET), new ItemStack(SlimefunItems.REACTOR_COOLANT_CELL) });
     }
 
     @Nonnull
@@ -39,29 +39,12 @@ public class CompressedFreezer extends AContainer implements RecipeDisplayItem{
 
     @Override
     public ItemStack getProgressBar() {
-        return new ItemStack(Material.GOLDEN_PICKAXE);
+        return new ItemStack(Material.NETHERITE_PICKAXE);
     }
 
     @Nonnull
     @Override
     public String getMachineIdentifier() {
         return "IE_COMPRESSED_FREEZER";
-    }
-
-    @Override
-    public int getEnergyConsumption() {
-        // (J/s)
-        return 60;
-    }
-
-    @Override
-    public int getSpeed() {
-        return 1;
-    }
-
-    @Override
-    public int getCapacity() {
-        // (J)
-        return 512;
     }
 }

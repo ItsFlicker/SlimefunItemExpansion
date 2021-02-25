@@ -14,12 +14,11 @@ import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
 
-public class MouseTail extends SimpleSlimefunItem<ItemUseHandler> implements NotPlaceable, RandomMobDrop {
+public class HopeFlower extends SimpleSlimefunItem<ItemUseHandler> implements NotPlaceable, RandomMobDrop {
+    private final ItemSetting<Boolean> dropSetting = new ItemSetting<>("drop-from-players", true);
+    private final ItemSetting<Integer> chance = new IntRangeSetting("players-drop-chance", 0, 5, 100);
 
-    private final ItemSetting<Boolean> dropSetting = new ItemSetting<>("drop-from-silverfish", true);
-    private final ItemSetting<Integer> chance = new IntRangeSetting("silverfish-drop-chance", 0, 5, 100);
-
-    public MouseTail(Category category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
+    public HopeFlower(Category category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(category, item, recipeType, recipe);
 
         addItemSetting(dropSetting);
@@ -31,7 +30,7 @@ public class MouseTail extends SimpleSlimefunItem<ItemUseHandler> implements Not
         return chance.getValue();
     }
 
-    public boolean isDroppedFromSilverfish() {
+    public boolean isDroppedFromPlayers() {
         return dropSetting.getValue();
     }
 

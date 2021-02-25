@@ -1,7 +1,7 @@
 package com.wlyscraft.slimefunitemexpansion.items;
 
 import io.github.thebusybiscuit.slimefun4.core.attributes.Rechargeable;
-import io.github.thebusybiscuit.slimefun4.core.handlers.ToolUseHandler;
+import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler;
 import me.mrCookieSlime.Slimefun.Lists.RecipeType;
 import me.mrCookieSlime.Slimefun.Objects.Category;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
@@ -13,18 +13,18 @@ import javax.annotation.Nonnull;
 
 import static com.wlyscraft.slimefunitemexpansion.utils.SfUtils.sendMessage;
 
+public class ElectricCrossbow extends SlimefunItem implements Rechargeable {
 
-public class Drill extends SlimefunItem implements Rechargeable {
-
-    private static final float COST = 0.35F;
+    private static final float COST = 5F;
 
     private final float capacity;
 
-    public Drill(Category category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, float capacity) {
+    public ElectricCrossbow(Category category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, float capacity) {
         super(category, item, recipeType, recipe);
 
         this.capacity = capacity;
     }
+
 
     @Override
     public float getMaxItemCharge(ItemStack item) {
@@ -32,13 +32,14 @@ public class Drill extends SlimefunItem implements Rechargeable {
     }
 
     @Nonnull
-    protected ToolUseHandler getToolUseHandler() {
-        return (e, tool, fortune, drops) -> {
-            if (getItemCharge(tool) >= COST) removeItemCharge(tool, COST);
+    protected ItemUseHandler getItemUseHandler() {
+        return (e) -> {
+            ItemStack item = e.getItem();
+            if (getItemCharge(item) >= COST) removeItemCharge(item, COST);
             else {
                 Player player = e.getPlayer();
-                sendMessage(player, "§4你的手钻没电了！");
-                e.setCancelled(true);
+                sendMessage(player, "§4你的电动弩没电了！");
+                e.cancel();
             }
 
         };
@@ -48,7 +49,6 @@ public class Drill extends SlimefunItem implements Rechargeable {
     public void preRegister() {
         super.preRegister();
 
-        addItemHandler(getToolUseHandler());
+        addItemHandler(getItemUseHandler());
     }
-
 }

@@ -13,14 +13,24 @@ import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.AContainer;
 import me.mrCookieSlime.Slimefun.Objects.handlers.ItemHandler;
 import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import javax.annotation.Nonnull;
 
 public class SfUtils {
+
+    public static String prefix;
+
     public static void sendMessage(@Nonnull Player player, String message) {
-        player.sendMessage("§a SlimefunItemExpansion §7> §r"+message);
+        player.sendMessage(prefix+message);
     }
+
+    public static void setPrefix(String s) {
+        prefix = s;
+    }
+
     public static void registerItem(SlimefunItemStack sis, Category category, RecipeType rt, ItemStack[] recipe) {
         SlimefunItem sfi = new SlimefunItem(category, sis, rt, recipe);
         sfi.register(SlimefunItemExpansion.getInstance());
@@ -66,5 +76,11 @@ public class SfUtils {
                 }
             }
         }
+    }
+
+    public static void hideEnchants(ItemStack is) {
+        ItemMeta im = is.getItemMeta();
+        im.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        is.setItemMeta(im);
     }
 }

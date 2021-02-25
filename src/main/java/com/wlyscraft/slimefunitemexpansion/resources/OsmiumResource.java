@@ -13,14 +13,14 @@ import javax.annotation.Nonnull;
 public class OsmiumResource implements GEOResource {
     @Override
     public int getDefaultSupply(@Nonnull World.Environment environment, @Nonnull Biome biome) {
-        if(environment == World.Environment.NORMAL) return 10;
+        if(environment == World.Environment.NORMAL) return 4;
         else return 0;
     }
 
     @Override
     public int getMaxDeviation() {
         // 浮动值
-        return 10;
+        return 3;
     }
 
     @Nonnull

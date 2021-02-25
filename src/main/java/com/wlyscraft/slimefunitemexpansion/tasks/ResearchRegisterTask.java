@@ -38,7 +38,7 @@ public class ResearchRegisterTask {
                 100869, "高级农业技术", 32).addItems(Items.JIN_KE_LA, Items.PHYTOGENIC_INSOLATOR).register();
 
         new Research(new NamespacedKey(SlimefunItemExpansion.getInstance(), "COBBLESTONE_GENERATOR_R"),
-                1008610, "造石机", 25).addItems(Items.COBBLESTONE_GENERATOR).register();
+                1008610, "造石机", 25).addItems(Items.COBBLESTONE_GENERATOR, Items.COBBLESTONE_GENERATOR_2).register();
 
         new Research(new NamespacedKey(SlimefunItemExpansion.getInstance(), "ADVANCED_EXP_R"),
                 1008611, "新型经验技术", 30).addItems(Items.COMPRESSED_EXP_BLOCK, Items.COMPRESSED_EXP_BLOCK_2,
@@ -49,5 +49,37 @@ public class ResearchRegisterTask {
 
         new Research(new NamespacedKey(SlimefunItemExpansion.getInstance(), "COMPRESSED_FREEZER"),
                 1008613, "一键冷却剂工厂", 31).addItems(Items.COMPRESSED_FREEZER).register();
+
+        new Research(new NamespacedKey(SlimefunItemExpansion.getInstance(), "ENHANCED_GLOWSTONE_R"),
+                1008614, "强化荧石", 5).addItems(Items.ENHANCED_GLOWSTONE).register();
+
+        new Research(new NamespacedKey(SlimefunItemExpansion.getInstance(), "OSGLOGLAS_R"),
+                1008615, "锇荧黑曜合金", 12).addItems(Items.OSGLOGLAS_INGOT).register();
+
+        new Research(new NamespacedKey(SlimefunItemExpansion.getInstance(), "NEW_TECH_R"),
+                1008616, "新科技,来临力", 19).addItems(Items.BASIC_CONTROL_CIRCUIT,
+                Items.ADVANCED_CONTROL_CIRCUIT, Items.ENRICHED_ALLOY, Items.METALLURGIC_INFUSER).register();
+
+        new Research(new NamespacedKey(SlimefunItemExpansion.getInstance(), "NEW_GENERATOR_R"),
+                1008617, "恒河里的发电机", 20).addItems(Items.DEATH_GENERATOR,
+                Items.TNT_GENERATOR).register();
+
+        new Research(new NamespacedKey(SlimefunItemExpansion.getInstance(), "LAVA_FACTORY_R"),
+                1008618, "岩浆工厂", 33).addItems(Items.LAVA_FACTORY).register();
+
+        new Research(new NamespacedKey(SlimefunItemExpansion.getInstance(), "METALLURGIC_INFUSER_R"),
+                1008619, "冶金灌注机", 16).addItems(Items.METALLURGIC_INFUSER).register();
+
+        new Research(new NamespacedKey(SlimefunItemExpansion.getInstance(), "ANDURIL_R"),
+                1008620, "安都瑞尔之剑", 17).addItems(Items.ANDURIL).register();
+
+        new Research(new NamespacedKey(SlimefunItemExpansion.getInstance(), "ELECTRIC_CROSSBOW_R"),
+                1008621, "电动弩", 42).addItems(Items.ELECTRIC_CROSSBOW).register();
+
+        new Research(new NamespacedKey(SlimefunItemExpansion.getInstance(), "LIGHTNING_BOW_R"),
+                1008622, "闪电弓", 37).addItems(Items.LIGHTNING_BOW).register();
+
+        new Research(new NamespacedKey(SlimefunItemExpansion.getInstance(), "XIONG_SHI_LAO_FANG_R"),
+                1008623, "又名蒙药心脑方", 13).addItems(Items.XIONG_SHI_LAO_FANG).register();
     }
 }
