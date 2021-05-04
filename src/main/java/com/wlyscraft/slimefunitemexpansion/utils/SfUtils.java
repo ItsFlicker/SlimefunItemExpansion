@@ -1,6 +1,7 @@
 package com.wlyscraft.slimefunitemexpansion.utils;
 
 import com.wlyscraft.slimefunitemexpansion.SlimefunItemExpansion;
+import io.github.thebusybiscuit.slimefun4.api.items.ItemSetting;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunPlugin;
 import io.github.thebusybiscuit.slimefun4.implementation.items.altar.AncientAltar;
@@ -13,6 +14,7 @@ import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.AContainer;
 import me.mrCookieSlime.Slimefun.Objects.handlers.ItemHandler;
 import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
+import net.kyori.adventure.text.TextComponent;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
@@ -26,6 +28,10 @@ public class SfUtils {
 
     public static void sendMessage(@Nonnull Player player, String message) {
         player.sendMessage(prefix+message);
+    }
+
+    public static void sendActionBar(@Nonnull Player player, String message) {
+        player.sendActionBar(message);
     }
 
     public static void setPrefix(String s) {
@@ -42,6 +48,12 @@ public class SfUtils {
         for (ItemHandler ih : ith){
             sfi.addItemHandler(ih);
         }
+        sfi.register(SlimefunItemExpansion.getInstance());
+    }
+
+    public static void registerItemUsedToCraft(SlimefunItemStack sis, Category category, RecipeType rt, ItemStack[] recipe) {
+        SlimefunItem sfi = new SlimefunItem(category, sis, rt, recipe);
+        new ItemSetting<>(sfi, "can-be-used-in-workbenches", false).update(true);
         sfi.register(SlimefunItemExpansion.getInstance());
     }
 

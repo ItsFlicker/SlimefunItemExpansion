@@ -31,15 +31,18 @@ public class SlimechunkChecker extends SlimefunItem implements Rechargeable {
     @Nonnull
     protected ItemUseHandler getItemUseHandler() {
         return (e) -> {
+            e.cancel();
+
             ItemStack item = e.getItem();
             Player player = e.getPlayer();
+
             if (getItemCharge(item) >= COST) {
                 removeItemCharge(item, COST);
                 if (player.getChunk().isSlimeChunk()) SfUtils.sendMessage(player, "§a你所在的区块是史莱姆区块!");
                 else SfUtils.sendMessage(player, "§c你所在的区块不是史莱姆区块!");
             }
             else {
-                SfUtils.sendMessage(player, "§c§l你的史莱姆区块检测器没电了！");
+                SfUtils.sendActionBar(player, "§c你的史莱姆区块检测器没电了");
                 e.cancel();
             }
 

@@ -1,5 +1,6 @@
 package com.wlyscraft.slimefunitemexpansion.items.weapons;
 
+import com.wlyscraft.slimefunitemexpansion.utils.SfUtils;
 import io.github.thebusybiscuit.slimefun4.core.attributes.Rechargeable;
 import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler;
 import me.mrCookieSlime.Slimefun.Lists.RecipeType;
@@ -10,8 +11,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
-
-import static com.wlyscraft.slimefunitemexpansion.utils.SfUtils.sendMessage;
 
 public class ElectricCrossbow extends SlimefunItem implements Rechargeable {
 
@@ -38,7 +37,7 @@ public class ElectricCrossbow extends SlimefunItem implements Rechargeable {
             if (getItemCharge(item) >= COST) removeItemCharge(item, COST);
             else {
                 Player player = e.getPlayer();
-                sendMessage(player, "§c§l你的电动弩没电了！");
+                SfUtils.sendActionBar(player, "§c你的电动弩没电了！");
                 e.cancel();
             }
 

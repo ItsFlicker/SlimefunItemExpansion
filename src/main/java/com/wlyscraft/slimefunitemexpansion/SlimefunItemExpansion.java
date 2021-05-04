@@ -34,6 +34,8 @@ public final class SlimefunItemExpansion extends JavaPlugin implements SlimefunA
     public void onEnable() {
         instance = this;
 
+        getLogger().info("§b欢迎使用 SlimefunItemExpansion v1.0.2 by wlys(还在测试中)");
+
         getLogger().info("§a读取配置文件中...");
         saveDefaultConfig();
 
@@ -41,14 +43,14 @@ public final class SlimefunItemExpansion extends JavaPlugin implements SlimefunA
 
         SfUtils.setPrefix(config.getString("prefix"));
 
+        getLogger().info("§a注册SlimeFun GEO资源中...");
+        ResourceRegisterTask.run();
+
         getLogger().info("§a注册SlimeFun物品中...");
         ItemRegisterTask.run();
 
         getLogger().info("§a注册SlimeFun机器中...");
         MachineRegisterTask.run();
-
-        getLogger().info("§a注册SlimeFun GEO资源中...");
-        ResourceRegisterTask.run();
 
         getLogger().info("§a注册SlimeFun研究中...");
         ResearchRegisterTask.run();
@@ -80,11 +82,11 @@ public final class SlimefunItemExpansion extends JavaPlugin implements SlimefunA
                     if (entity instanceof Player) {
                         Player passenger = (Player) entity;
                         if (!player.removePassenger(entity)) {
-                            SfUtils.sendMessage(player, "§4由于某种原因,你不能让" + passenger.getName() + "从你头上下去");
+                            SfUtils.sendActionBar(player, "§4由于某种原因,你不能让" + passenger.getName() + "从你头上下去");
                             return true;
                         }
                         SfUtils.sendMessage(passenger, "§a" + player.getName() + "对你说:§e§l鬼!");
-                        SfUtils.sendMessage(player, "§e你成功的将" + passenger.getName() + "从你的头上赶了下去");
+                        SfUtils.sendActionBar(player, "§e你成功的将" + passenger.getName() + "从你的头上赶了下去");
                     }
                 }
                 return true;
@@ -95,6 +97,7 @@ public final class SlimefunItemExpansion extends JavaPlugin implements SlimefunA
 
     @Override
     public void onDisable() {
+        super.onDisable();
         instance = null;
     }
 }

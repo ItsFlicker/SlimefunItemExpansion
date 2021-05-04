@@ -1,6 +1,6 @@
 package com.wlyscraft.slimefunitemexpansion.machines;
 
-import com.wlyscraft.slimefunitemexpansion.items.Items;
+import com.wlyscraft.slimefunitemexpansion.items.IEItems;
 import com.wlyscraft.slimefunitemexpansion.SlimefunItemExpansion;
 import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
@@ -34,13 +34,13 @@ public class MetallurgicInfuser extends AContainer implements RecipeDisplayItem 
 
     @Override
     public void registerDefaultRecipes() {
-        this.registerRecipe(1, new ItemStack[]{new CustomItem(Material.KNOWLEDGE_BOOK, "§b配方表", "§b1铁锭+1红石粉=1富集合金", "§b1锇锭+1红石粉=1基础控制电路", "§b1铁锭+1压缩碳=1钢锭")}, new ItemStack[]{new CustomItem(Material.KNOWLEDGE_BOOK, "§b配方表", "§b1铁锭+1红石粉=1富集合金", "§b1锇锭+1红石粉=1基础控制电路", "§b1铁锭+1压缩碳=1钢锭")});
-        this.registerRecipe(8, new ItemStack[]{new ItemStack(Material.IRON_INGOT), new ItemStack(Material.REDSTONE)}, new ItemStack[]{Items.ENRICHED_ALLOY});
-        this.registerRecipe(8, new ItemStack[]{Items.OSMIUM_INGOT, new ItemStack(Material.REDSTONE)}, new ItemStack[]{Items.BASIC_CONTROL_CIRCUIT});
-        this.registerRecipe(8, new ItemStack[]{new ItemStack(Material.IRON_INGOT), SlimefunItems.CARBON}, new ItemStack[]{SlimefunItems.STEEL_INGOT});
+        this.registerRecipe(1, new ItemStack[]{new CustomItem(Material.KNOWLEDGE_BOOK, "§b配方表", "§b1铁锭+1红石粉=1富集合金", "§b1锇锭+1红石粉=1基础控制电路", "§b1铁锭+1碳=1钢锭")}, new ItemStack[]{new ItemStack(Material.AIR)});
+        this.registerRecipe(8, new ItemStack[]{new ItemStack(Material.IRON_INGOT), new ItemStack(Material.REDSTONE)}, new ItemStack[]{IEItems.ENRICHED_ALLOY});
+        this.registerRecipe(8, new ItemStack[]{IEItems.OSMIUM_INGOT, new ItemStack(Material.REDSTONE)}, new ItemStack[]{IEItems.BASIC_CONTROL_CIRCUIT});
+        this.registerRecipe(5, new ItemStack[]{new ItemStack(Material.IRON_INGOT), SlimefunItems.CARBON}, new ItemStack[]{SlimefunItems.STEEL_INGOT});
     }
 
     public static RecipeType recipeType() {
-        return new RecipeType(new NamespacedKey(SlimefunItemExpansion.getInstance(), "metallurgic_infuser"), Items.METALLURGIC_INFUSER);
+        return new RecipeType(new NamespacedKey(SlimefunItemExpansion.getInstance(), "metallurgic_infuser"), IEItems.METALLURGIC_INFUSER);
     }
 }

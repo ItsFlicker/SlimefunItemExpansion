@@ -13,16 +13,18 @@ import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 public class HopeFlower extends SimpleSlimefunItem<ItemUseHandler> implements NotPlaceable, RandomMobDrop {
-    private final ItemSetting<Boolean> dropSetting = new ItemSetting<>(this, "drop-from-players", true);
-    private final ItemSetting<Integer> chance = new IntRangeSetting(this, "players-drop-chance", 0, 5, 100);
 
+    private final ItemSetting<Boolean> dropSetting = new ItemSetting<>(this, "drop-from-villagers", true);
+    private final ItemSetting<Integer> chance = new IntRangeSetting(this, "villagers-drop-chance", 0, 5, 100);
+
+    @ParametersAreNonnullByDefault
     public HopeFlower(Category category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(category, item, recipeType, recipe);
-
-//        addItemSetting(dropSetting);
-//        addItemSetting(chance);
+        addItemSetting(dropSetting);
+        addItemSetting(chance);
     }
 
     @Override

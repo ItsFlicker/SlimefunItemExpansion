@@ -8,7 +8,7 @@ commands:
   slimefunitemexpansion:
     description: SlimefunItemExpansion的命令
     usage: |
-      §aSlimefunItemExpansion §2v1.0-SNAPSHOT
+      §aSlimefunItemExpansion §2v1.0.2
 
       §9/sfie help §b显示此帮助
       §9/sfie rp §b让骑在你头上的玩家下去
