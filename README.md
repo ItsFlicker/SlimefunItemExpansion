@@ -1,10 +1,13 @@
-# SlimefunItemExpansion
-一个有(沙)趣(雕)和(不)实用的粘液科技拓展
+#SlimefunItemExpansion
 
-前置:Slimefun(RC-21版本以上)
+###<font color="GRAY"><center>***Powered by TabooLib 6.0***</center></font>
 
-理论上Paper及其fork都可用
+***
 
-还在开发中,不稳定
+一个增加很多**梗**物品和（不）实用机器的粘液科技拓展
 
-暂时只支持中文
+插件需求：
+- Spigot, Paper等Bukkit平台 1.16.x-1.17.x
+- Slimefun RC-21+
+
+更多物品还在设计中!
