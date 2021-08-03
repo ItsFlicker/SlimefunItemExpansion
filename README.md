@@ -1,6 +1,6 @@
 #SlimefunItemExpansion
 
-###<font color="GRAY"><center>***Powered by TabooLib 6.0***</center></font>
+<font color="GRAY"><center>***Powered by TabooLib 6.0***</center></font>
 
 ***
 
