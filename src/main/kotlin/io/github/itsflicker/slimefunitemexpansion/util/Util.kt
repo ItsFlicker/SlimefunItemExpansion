@@ -14,7 +14,7 @@ import me.mrCookieSlime.Slimefun.api.SlimefunItemStack
 import org.bukkit.NamespacedKey
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
-import taboolib.common.platform.adaptPlayer
+import taboolib.common.platform.function.adaptPlayer
 
 fun String.toKey(): NamespacedKey {
     return NamespacedKey(SlimefunItemExpansion.plugin, this)

@@ -17,7 +17,7 @@ class MouseTail (category: Category, item: SlimefunItemStack, recipeType: Recipe
     SimpleSlimefunItem<ItemUseHandler>(category, item, recipeType, recipe), NotPlaceable, RandomMobDrop {
 
     private val dropSetting = ItemSetting(this, "drop-from-silverfish", true)
-    private val chance: ItemSetting<Int> = IntRangeSetting(this, "silverfish-drop-chance", 0, 5, 100)
+    private val chance = IntRangeSetting(this, "silverfish-drop-chance", 0, 5, 100)
 
     override fun getMobDropChance(): Int {
         return chance.value

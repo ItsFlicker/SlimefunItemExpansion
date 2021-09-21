@@ -1,6 +1,6 @@
 package io.github.itsflicker.slimefunitemexpansion.items.resources
 
-import io.github.itsflicker.slimefunitemexpansion.SlimefunItemExpansion
+import io.github.itsflicker.slimefunitemexpansion.util.toKey
 import io.github.thebusybiscuit.slimefun4.api.geo.GEOResource
 import me.mrCookieSlime.Slimefun.Lists.RecipeType
 import me.mrCookieSlime.Slimefun.Objects.Category
@@ -40,7 +40,7 @@ class OsmiumDust(category: Category) : SlimefunItem(category, OSMIUM_DUST, Recip
     }
 
     override fun getKey(): NamespacedKey {
-        return NamespacedKey(SlimefunItemExpansion.plugin, "IE_OSMIUM_DUST_RESOURCE")
+        return "IE_OSMIUM_DUST_RESOURCE".toKey()
     }
 
     companion object {

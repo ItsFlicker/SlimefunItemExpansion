@@ -140,7 +140,7 @@ object ItemRegisterTask {
             ItemStack(Material.ENDER_PEARL), ItemStack(Material.DIAMOND), ItemStack(Material.ENDER_PEARL),
             ItemStack(Material.GOLD_INGOT), ItemStack(Material.CLOCK), ItemStack(Material.GOLD_INGOT),
             ItemStack(Material.ENDER_PEARL), ItemStack(Material.DIAMOND), ItemStack(Material.ENDER_PEARL)
-        ), ItemUseHandler { e: PlayerRightClickEvent ->
+        ), ItemUseHandler { e ->
             if (e.hand != EquipmentSlot.HAND) return@ItemUseHandler
             val player = e.player
             val item = e.item
@@ -151,12 +151,9 @@ object ItemRegisterTask {
                 player.inventory.setItemInMainHand(null)
             }
             player.location.world!!.createExplosion(player.location, 1f, false, false)
-            player.location.world!!
-                .dropItem(player.location, ItemStack(Material.ENDER_PEARL, 2))
-            player.location.world!!
-                .dropItem(player.location, ItemStack(Material.DIAMOND, 1))
-            player.location.world!!
-                .dropItem(player.location, ItemStack(Material.GOLD_INGOT, 1))
+            player.location.world!!.dropItem(player.location, ItemStack(Material.ENDER_PEARL, 2))
+            player.location.world!!.dropItem(player.location, ItemStack(Material.DIAMOND, 1))
+            player.location.world!!.dropItem(player.location, ItemStack(Material.GOLD_INGOT, 1))
             player.sendMessage("§4由于你错误的使用方式，时间洪流怀表爆炸了！")
             player.sendMessage("§e幸运的是，时间洪流怀表的部分材料没有被炸坏...")
             player.sendMessage("§2你应该先看看教程再来使用的：https://www.bilibili.com/video/BV1GJ411x7h7")
@@ -179,6 +176,7 @@ object ItemRegisterTask {
             ),
             null, null, null, null
         )).register(SlimefunItemExpansion)
+        /* TODO
         IEItems.COMPRESSED_EXP_BLOCK.regNonPlaceableItem(IEItems.IE_MISC_STUFF, RecipeType.ENHANCED_CRAFTING_TABLE, arrayOf(
             SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE, SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE, SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE,
             SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE, SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE, SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE,
@@ -196,6 +194,7 @@ object ItemRegisterTask {
                 SlimefunItems.MAGICAL_GLASS, IEItems.COMPRESSED_EXP_BLOCK_2, SlimefunItems.MAGICAL_GLASS
             )
         )
+         */
 
         // 工具和武器装备
         IEItems.LIGHTNING_WHIP.regItem(
@@ -235,15 +234,9 @@ object ItemRegisterTask {
             IEItems.DURALUMIN_DRILL,
             RecipeType.ENHANCED_CRAFTING_TABLE,
             arrayOf(
-                SlimefunItems.DURALUMIN_INGOT,
-                SlimefunItems.DURALUMIN_INGOT,
-                SlimefunItems.DURALUMIN_INGOT,
-                IEItems.BASIC_CONTROL_CIRCUIT,
-                SlimefunItems.SMALL_CAPACITOR,
-                IEItems.BASIC_CONTROL_CIRCUIT,
-                ItemStack(Material.IRON_BLOCK),
-                IEItems.WOFT,
-                ItemStack(Material.IRON_BLOCK)
+                SlimefunItems.DURALUMIN_INGOT, SlimefunItems.DURALUMIN_INGOT, SlimefunItems.DURALUMIN_INGOT,
+                IEItems.BASIC_CONTROL_CIRCUIT, SlimefunItems.SMALL_CAPACITOR, IEItems.BASIC_CONTROL_CIRCUIT,
+                ItemStack(Material.IRON_BLOCK), IEItems.WOFT, ItemStack(Material.IRON_BLOCK)
             ),
             200F
         ).register(SlimefunItemExpansion)
@@ -252,15 +245,9 @@ object ItemRegisterTask {
             IEItems.SOLDER_DRILL,
             RecipeType.ENHANCED_CRAFTING_TABLE,
             arrayOf(
-                SlimefunItems.SOLDER_INGOT,
-                SlimefunItems.SOLDER_INGOT,
-                SlimefunItems.SOLDER_INGOT,
-                IEItems.BASIC_CONTROL_CIRCUIT,
-                SlimefunItems.SMALL_CAPACITOR,
-                IEItems.BASIC_CONTROL_CIRCUIT,
-                ItemStack(Material.IRON_BLOCK),
-                IEItems.WOFT,
-                ItemStack(Material.IRON_BLOCK)
+                SlimefunItems.SOLDER_INGOT, SlimefunItems.SOLDER_INGOT, SlimefunItems.SOLDER_INGOT,
+                IEItems.BASIC_CONTROL_CIRCUIT, SlimefunItems.SMALL_CAPACITOR, IEItems.BASIC_CONTROL_CIRCUIT,
+                ItemStack(Material.IRON_BLOCK), IEItems.WOFT, ItemStack(Material.IRON_BLOCK)
             ),
             300F
         ).register(SlimefunItemExpansion)
@@ -269,15 +256,9 @@ object ItemRegisterTask {
             IEItems.BILLON_DRILL,
             RecipeType.ENHANCED_CRAFTING_TABLE,
             arrayOf(
-                SlimefunItems.BILLON_INGOT,
-                SlimefunItems.BILLON_INGOT,
-                SlimefunItems.BILLON_INGOT,
-                IEItems.BASIC_CONTROL_CIRCUIT,
-                SlimefunItems.SMALL_CAPACITOR,
-                IEItems.BASIC_CONTROL_CIRCUIT,
-                ItemStack(Material.IRON_BLOCK),
-                IEItems.WOFT,
-                ItemStack(Material.IRON_BLOCK)
+                SlimefunItems.BILLON_INGOT, SlimefunItems.BILLON_INGOT, SlimefunItems.BILLON_INGOT,
+                IEItems.BASIC_CONTROL_CIRCUIT, SlimefunItems.SMALL_CAPACITOR, IEItems.BASIC_CONTROL_CIRCUIT,
+                ItemStack(Material.IRON_BLOCK), IEItems.WOFT, ItemStack(Material.IRON_BLOCK)
             ),
             400F
         ).register(SlimefunItemExpansion)
@@ -286,15 +267,9 @@ object ItemRegisterTask {
             IEItems.STEEL_DRILL,
             RecipeType.ENHANCED_CRAFTING_TABLE,
             arrayOf(
-                SlimefunItems.STEEL_INGOT,
-                SlimefunItems.STEEL_INGOT,
-                SlimefunItems.STEEL_INGOT,
-                IEItems.BASIC_CONTROL_CIRCUIT,
-                SlimefunItems.SMALL_CAPACITOR,
-                IEItems.BASIC_CONTROL_CIRCUIT,
-                ItemStack(Material.IRON_BLOCK),
-                IEItems.WOFT,
-                ItemStack(Material.IRON_BLOCK)
+                SlimefunItems.STEEL_INGOT, SlimefunItems.STEEL_INGOT, SlimefunItems.STEEL_INGOT,
+                IEItems.BASIC_CONTROL_CIRCUIT, SlimefunItems.SMALL_CAPACITOR, IEItems.BASIC_CONTROL_CIRCUIT,
+                ItemStack(Material.IRON_BLOCK), IEItems.WOFT, ItemStack(Material.IRON_BLOCK)
             ),
             500F
         ).register(SlimefunItemExpansion)
@@ -303,15 +278,9 @@ object ItemRegisterTask {
             IEItems.DAMASCUS_STEEL_DRILL,
             RecipeType.ENHANCED_CRAFTING_TABLE,
             arrayOf(
-                SlimefunItems.DAMASCUS_STEEL_INGOT,
-                SlimefunItems.DAMASCUS_STEEL_INGOT,
-                SlimefunItems.DAMASCUS_STEEL_INGOT,
-                IEItems.ADVANCED_CONTROL_CIRCUIT,
-                SlimefunItems.SMALL_CAPACITOR,
-                IEItems.ADVANCED_CONTROL_CIRCUIT,
-                ItemStack(Material.IRON_BLOCK),
-                IEItems.WOFT,
-                ItemStack(Material.IRON_BLOCK)
+                SlimefunItems.DAMASCUS_STEEL_INGOT, SlimefunItems.DAMASCUS_STEEL_INGOT, SlimefunItems.DAMASCUS_STEEL_INGOT,
+                IEItems.ADVANCED_CONTROL_CIRCUIT, SlimefunItems.SMALL_CAPACITOR, IEItems.ADVANCED_CONTROL_CIRCUIT,
+                ItemStack(Material.IRON_BLOCK), IEItems.WOFT, ItemStack(Material.IRON_BLOCK)
             ),
             600F
         ).register(SlimefunItemExpansion)
@@ -320,15 +289,9 @@ object ItemRegisterTask {
             IEItems.REINFORCED_ALLOY_DRILL,
             RecipeType.ENHANCED_CRAFTING_TABLE,
             arrayOf(
-                SlimefunItems.REINFORCED_ALLOY_INGOT,
-                SlimefunItems.REINFORCED_ALLOY_INGOT,
-                SlimefunItems.REINFORCED_ALLOY_INGOT,
-                IEItems.ADVANCED_CONTROL_CIRCUIT,
-                SlimefunItems.MEDIUM_CAPACITOR,
-                IEItems.ADVANCED_CONTROL_CIRCUIT,
-                ItemStack(Material.IRON_BLOCK),
-                IEItems.WOFT,
-                ItemStack(Material.IRON_BLOCK)
+                SlimefunItems.REINFORCED_ALLOY_INGOT, SlimefunItems.REINFORCED_ALLOY_INGOT, SlimefunItems.REINFORCED_ALLOY_INGOT,
+                IEItems.ADVANCED_CONTROL_CIRCUIT, SlimefunItems.MEDIUM_CAPACITOR, IEItems.ADVANCED_CONTROL_CIRCUIT,
+                ItemStack(Material.IRON_BLOCK), IEItems.WOFT, ItemStack(Material.IRON_BLOCK)
             ),
             750F
         ).register(SlimefunItemExpansion)
@@ -337,15 +300,9 @@ object ItemRegisterTask {
             IEItems.CARBONADO_DRILL,
             RecipeType.ENHANCED_CRAFTING_TABLE,
             arrayOf(
-                SlimefunItems.CARBONADO,
-                SlimefunItems.CARBONADO,
-                SlimefunItems.CARBONADO,
-                IEItems.ADVANCED_CONTROL_CIRCUIT,
-                SlimefunItems.LARGE_CAPACITOR,
-                IEItems.ADVANCED_CONTROL_CIRCUIT,
-                ItemStack(Material.IRON_BLOCK),
-                IEItems.REINFORCED_ALLOY_DRILL,
-                ItemStack(Material.IRON_BLOCK)
+                SlimefunItems.CARBONADO, SlimefunItems.CARBONADO, SlimefunItems.CARBONADO,
+                IEItems.ADVANCED_CONTROL_CIRCUIT, SlimefunItems.LARGE_CAPACITOR, IEItems.ADVANCED_CONTROL_CIRCUIT,
+                ItemStack(Material.IRON_BLOCK), IEItems.REINFORCED_ALLOY_DRILL, ItemStack(Material.IRON_BLOCK)
             ),
             2000F
         ).register(SlimefunItemExpansion)
@@ -361,16 +318,9 @@ object ItemRegisterTask {
             IEItems.ELECTRIC_CROSSBOW,
             RecipeType.ENHANCED_CRAFTING_TABLE,
             arrayOf(
-                IEItems.OSGLOGLAS_INGOT,
-                SlimefunItems.REINFORCED_PLATE,
-                IEItems.OSGLOGLAS_INGOT,
-                IEItems.ADVANCED_CONTROL_CIRCUIT,
-                SlimefunItems.LARGE_CAPACITOR,
-                IEItems.ADVANCED_CONTROL_CIRCUIT,
-                null,
-                IEItems.OSGLOGLAS_INGOT,
-                null
-            ),
+                IEItems.OSGLOGLAS_INGOT, SlimefunItems.REINFORCED_PLATE, IEItems.OSGLOGLAS_INGOT,
+                IEItems.ADVANCED_CONTROL_CIRCUIT, SlimefunItems.LARGE_CAPACITOR, IEItems.ADVANCED_CONTROL_CIRCUIT,
+                null, IEItems.OSGLOGLAS_INGOT, null),
             1000F
         ).register(SlimefunItemExpansion)
         IEItems.ANDURIL.regItem(
@@ -412,7 +362,7 @@ object ItemRegisterTask {
             IEItems.MOUSE_TAIL, null, null,
             null, null, null,
             null, null, null
-        ), ItemUseHandler { e: PlayerRightClickEvent ->
+        ), ItemUseHandler { e ->
             if (e.hand != EquipmentSlot.HAND) return@ItemUseHandler
             val player = e.player
             player.inventory.setItemInMainHand(null)
@@ -438,7 +388,7 @@ object ItemRegisterTask {
             null, ItemStack(Material.WHEAT), null,
             null, ItemStack(Material.WHEAT), null,
             null, ItemStack(Material.BOWL), null
-        ), ItemUseHandler { e: PlayerRightClickEvent ->
+        ), ItemUseHandler { e ->
             if (e.hand != EquipmentSlot.HAND) return@ItemUseHandler
             val player = e.player
             val item = e.item
@@ -507,13 +457,6 @@ object ItemRegisterTask {
                     ItemStack(Material.LEATHER), IEItems.OSGLOGLAS_INGOT, IEItems.CAMERA_13,
                     ItemStack(Material.LEATHER), IEItems.COBWEB_SCREEN, IEItems.MEMORY_128B,
                     IEItems.CPU, IEItems.OSGLOGLAS_INGOT
-                )
-            )
-            IEItems.ARTIFICIAL_DRAGON_BREATH.regUsableInWorkbenchItem(
-                IEItems.IE_RESOURCE_STUFF, RecipeType.ANCIENT_ALTAR, arrayOf(
-                    SlimefunItems.MAGICAL_GLASS, SlimefunItems.ENDER_RUNE, SlimefunItems.MAGICAL_GLASS,
-                    SlimefunItems.ENDER_RUNE, SlimefunItems.STRANGE_NETHER_GOO, SlimefunItems.ENDER_RUNE,
-                    SlimefunItems.MAGICAL_GLASS, SlimefunItems.ENDER_RUNE, SlimefunItems.MAGICAL_GLASS
                 )
             )
         }

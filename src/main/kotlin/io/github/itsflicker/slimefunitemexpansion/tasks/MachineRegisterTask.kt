@@ -72,6 +72,14 @@ object MachineRegisterTask {
             .setEnergyProduction(12)
             .register(SlimefunItemExpansion)
 
+        HalitosisGenerator(IEItems.IE_MACHINES_STUFF, IEItems.HALITOSIS_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, arrayOf(
+            ItemStack(Material.PURPUR_BLOCK), ItemStack(Material.PURPUR_BLOCK), ItemStack(Material.PURPUR_BLOCK),
+            ItemStack(Material.PURPUR_BLOCK), ItemStack(Material.END_ROD), ItemStack(Material.PURPUR_BLOCK),
+            IEItems.ADVANCED_COIL, SlimefunItems.COAL_GENERATOR, IEItems.ADVANCED_COIL
+        )).setCapacity(128)
+            .setEnergyProduction(20)
+            .register(SlimefunItemExpansion)
+
         LavaFactory(IEItems.IE_MACHINES_STUFF, IEItems.LAVA_FACTORY, RecipeType.ENHANCED_CRAFTING_TABLE, arrayOf(
             IEItems.OSGLOGLAS_INGOT, IEItems.ADVANCED_CONTROL_CIRCUIT, IEItems.OSGLOGLAS_INGOT,
             SlimefunItems.LAVA_CRYSTAL, IEItems.MACHINE_BLOCK, SlimefunItems.LAVA_CRYSTAL,

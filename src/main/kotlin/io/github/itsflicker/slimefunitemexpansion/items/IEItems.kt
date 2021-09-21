@@ -1,6 +1,7 @@
 package io.github.itsflicker.slimefunitemexpansion.items
 
 import io.github.itsflicker.slimefunitemexpansion.SlimefunItemExpansion
+import io.github.itsflicker.slimefunitemexpansion.util.toKey
 import io.github.thebusybiscuit.slimefun4.core.attributes.MachineTier
 import io.github.thebusybiscuit.slimefun4.core.attributes.MachineType
 import io.github.thebusybiscuit.slimefun4.core.categories.MultiCategory
@@ -29,6 +30,7 @@ import java.util.*
 
 @SkipTo(LifeCycle.LOAD)
 object IEItems {
+
     //  机械
     //  用电器
     val MACHINE_BLOCK = SlimefunItemStack(
@@ -118,6 +120,15 @@ object IEItems {
         LoreBuilder.powerBuffer(128),
         LoreBuilder.powerPerSecond(24)
     )
+    val HALITOSIS_GENERATOR = SlimefunItemStack(
+        "IE_HALITOSIS_GENERATOR",
+        SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWM0NDA4ZTdlNGQzMTY0OGQ2MmM1MmU4OTQ3MTFhZTA4YWU4NTA1NTdmYWRlY2NjZDRmY2NmYmY3YjBkNDc0NCJ9fX0="),
+        "§e龙息发电机",
+        "",
+        LoreBuilder.machine(MachineTier.MEDIUM, MachineType.GENERATOR),
+        LoreBuilder.powerBuffer(128),
+        LoreBuilder.powerPerSecond(40)
+    )
 
     //  材料
     val WOODEN_GEAR = SlimefunItemStack(
@@ -202,11 +213,57 @@ object IEItems {
         "§b§l闪电鞭 §7(伪)",
         "§5由于你还没有完全掌握混元形意太极拳法的精髓,",
         "§5你不能完全使用出闪电鞭的能力"
-    )
+    ).also {
+        it.modifyMeta<ItemMeta> {
+            addAttributeModifier(
+                Attribute.GENERIC_ATTACK_SPEED,
+                AttributeModifier(
+                    UUID.randomUUID(),
+                    "加快攻速0.5",
+                    0.5,
+                    AttributeModifier.Operation.ADD_NUMBER,
+                    EquipmentSlot.OFF_HAND
+                )
+            )
+            addAttributeModifier(
+                Attribute.GENERIC_ATTACK_DAMAGE,
+                AttributeModifier(
+                    UUID.randomUUID(),
+                    "增加伤害1",
+                    1.0,
+                    AttributeModifier.Operation.ADD_NUMBER,
+                    EquipmentSlot.OFF_HAND
+                )
+            )
+            addAttributeModifier(
+                Attribute.GENERIC_MAX_HEALTH,
+                AttributeModifier(
+                    UUID.randomUUID(),
+                    "增加最大血量2",
+                    2.0,
+                    AttributeModifier.Operation.ADD_NUMBER,
+                    EquipmentSlot.OFF_HAND
+                )
+            )
+        }
+    }
     val SPEED_TORCH = SlimefunItemStack(
         "SPEED_TORCH",
         buildItem(XMaterial.SOUL_TORCH) { enchants[Enchantment.SOUL_SPEED] = 1 },
-        "§5《加速火把》", "§b只是对于玩家来说")
+        "§5《加速火把》", "§b只是对于玩家来说").also {
+            it.modifyMeta<ItemMeta> {
+                addAttributeModifier(
+                    Attribute.GENERIC_MOVEMENT_SPEED,
+                    AttributeModifier(
+                        UUID.randomUUID(),
+                        "放在副手加速0.06",
+                        0.06,
+                        AttributeModifier.Operation.ADD_NUMBER,
+                        EquipmentSlot.OFF_HAND
+                    )
+                )
+            }
+    }
     val HUMAN_SADDLE = SlimefunItemStack("HUMAN_SADDLE", buildItem(XMaterial.SADDLE) { shiny() }, "§a§l人鞍", "总感觉很奇怪...")
     val LIGHTNING_BOW = SlimefunItemStack("LIGHTNING_BOW", Material.BOW, "§b§l闪电弓", "被此弓射出去的箭击中", "将会被一道雷劈中")
     val ELECTRIC_CROSSBOW = SlimefunItemStack(
@@ -223,10 +280,43 @@ object IEItems {
     val ANDURIL = SlimefunItemStack(
         "ANDURIL",
         buildItem(XMaterial.IRON_SWORD) { enchants.putAll(mapOf(Enchantment.DAMAGE_ALL to 2, Enchantment.DURABILITY to 2)) },
-        "§aAndúril")
+        "§aAndúril").also {
+            it.modifyMeta<ItemMeta> {
+                addAttributeModifier(
+                    Attribute.GENERIC_MOVEMENT_SPEED,
+                    AttributeModifier(
+                        UUID.randomUUID(),
+                        "放在主手加速0.02",
+                        0.02,
+                        AttributeModifier.Operation.ADD_NUMBER,
+                        EquipmentSlot.HAND
+                    )
+                )
+                addAttributeModifier(
+                    Attribute.GENERIC_ARMOR,
+                    AttributeModifier(
+                        UUID.randomUUID(),
+                        "增加护甲值2",
+                        2.0,
+                        AttributeModifier.Operation.ADD_NUMBER,
+                        EquipmentSlot.HAND
+                    )
+                )
+                addAttributeModifier(
+                    Attribute.GENERIC_ARMOR_TOUGHNESS,
+                    AttributeModifier(
+                        UUID.randomUUID(),
+                        "增加护甲韧性2",
+                        2.0,
+                        AttributeModifier.Operation.ADD_NUMBER,
+                        EquipmentSlot.HAND
+                    )
+                )
+            }
+    }
     val DURALUMIN_DRILL = SlimefunItemStack(
         "DURALUMIN_DRILL",
-        buildItem(XMaterial.DIAMOND_PICKAXE) { enchants.putAll(mapOf(Enchantment.DIG_SPEED to 3, Enchantment.DURABILITY to 5)) },
+        buildItem(XMaterial.DIAMOND_PICKAXE) { enchants.putAll(mapOf(Enchantment.DIG_SPEED to 2, Enchantment.DURABILITY to 3)) },
         "&9手钻 &7- &eI",
         "",
         LoreBuilder.material("Duralumin"),
@@ -235,7 +325,7 @@ object IEItems {
     )
     val SOLDER_DRILL = SlimefunItemStack(
         "SOLDER_DRILL",
-        buildItem(XMaterial.DIAMOND_PICKAXE) { enchants.putAll(mapOf(Enchantment.DIG_SPEED to 4, Enchantment.DURABILITY to 8)) },
+        buildItem(XMaterial.DIAMOND_PICKAXE) { enchants.putAll(mapOf(Enchantment.DIG_SPEED to 3, Enchantment.DURABILITY to 4)) },
         "&9手钻 &7- &eII",
         "",
         LoreBuilder.material("Solder"),
@@ -244,7 +334,7 @@ object IEItems {
     )
     val BILLON_DRILL = SlimefunItemStack(
         "BILLON_DRILL",
-        buildItem(XMaterial.DIAMOND_PICKAXE) { enchants.putAll(mapOf(Enchantment.DIG_SPEED to 5, Enchantment.DURABILITY to 10)) },
+        buildItem(XMaterial.DIAMOND_PICKAXE) { enchants.putAll(mapOf(Enchantment.DIG_SPEED to 4, Enchantment.DURABILITY to 5)) },
         "&9手钻 &7- &eIII",
         "",
         LoreBuilder.material("Billon"),
@@ -253,7 +343,7 @@ object IEItems {
     )
     val STEEL_DRILL = SlimefunItemStack(
         "STEEL_DRILL",
-        buildItem(XMaterial.DIAMOND_PICKAXE) { enchants.putAll(mapOf(Enchantment.DIG_SPEED to 5, Enchantment.DURABILITY to 12)) },
+        buildItem(XMaterial.DIAMOND_PICKAXE) { enchants.putAll(mapOf(Enchantment.DIG_SPEED to 5, Enchantment.DURABILITY to 6)) },
         "&9手钻 &7- &eIV",
         "",
         LoreBuilder.material("钢"),
@@ -262,7 +352,7 @@ object IEItems {
     )
     val DAMASCUS_STEEL_DRILL = SlimefunItemStack(
         "DAMASCUS_STEEL_DRILL",
-        buildItem(XMaterial.DIAMOND_PICKAXE) { enchants.putAll(mapOf(Enchantment.DIG_SPEED to 6, Enchantment.DURABILITY to 15)) },
+        buildItem(XMaterial.DIAMOND_PICKAXE) { enchants.putAll(mapOf(Enchantment.DIG_SPEED to 6, Enchantment.DURABILITY to 7)) },
         "&9手钻 &7- &eV",
         "",
         LoreBuilder.material("大马士革钢锭"),
@@ -271,7 +361,7 @@ object IEItems {
     )
     val REINFORCED_ALLOY_DRILL = SlimefunItemStack(
         "REINFORCED_ALLOY_DRILL",
-        buildItem(XMaterial.DIAMOND_PICKAXE) { enchants.putAll(mapOf(Enchantment.DIG_SPEED to 7, Enchantment.DURABILITY to 20)) },
+        buildItem(XMaterial.DIAMOND_PICKAXE) { enchants.putAll(mapOf(Enchantment.DIG_SPEED to 7, Enchantment.DURABILITY to 9)) },
         "&9手钻 &7- &eVI",
         "",
         LoreBuilder.material("强化合金锭"),
@@ -284,7 +374,7 @@ object IEItems {
         "&9手钻 &7- &eVII",
         "",
         LoreBuilder.material("黑金刚石"),
-        LoreBuilder.powerCharged(0, 1000),
+        LoreBuilder.powerCharged(0, 2000),
         ""
     )
     val WBP_BOOTS = SlimefunItemStack("WBP_BOOTS", buildItem(XMaterial.LEATHER_BOOTS) { color = Color.LIME;isUnbreakable = true }, "&2王八牌皮鞋")
@@ -362,119 +452,38 @@ object IEItems {
 
     //分类
     private val IE_GENERAL = MultiCategory(
-        NamespacedKey(SlimefunItemExpansion.plugin, "IE_GENERAL"),
+        "IE_GENERAL".toKey(),
         CustomItem(
             SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjgxOWFjZGIyMzEzYzEyOWJmNmFkMzQ1MjhkNDJhZGU3YjlhMmRmNjI3N2FkODRlN2I3NTFjOWY4OTk1NmRkYiJ9fX0="),
             "物品拓展"
         )
     )
     val IE_MACHINES_STUFF = SubCategory(
-        NamespacedKey(SlimefunItemExpansion.plugin, "IE_MACHINES_STUFF"),
+        "IE_MACHINES_STUFF".toKey(),
         IE_GENERAL,
         CustomItem(MACHINE_BLOCK, "物品拓展 - 机械")
     )
     val IE_MISC_STUFF = SubCategory(
-        NamespacedKey(SlimefunItemExpansion.plugin, "IE_MISC_STUFF"),
+        "IE_MISC_STUFF".toKey(),
         IE_GENERAL,
         CustomItem(Material.BUCKET, "物品拓展 - 杂项")
     )
     val IE_ATW_STUFF = SubCategory(
-        NamespacedKey(SlimefunItemExpansion.plugin, "IE_TOOLSANDWEAPONS_STUFF"),
+        "IE_TOOLSANDWEAPONS_STUFF".toKey(),
         IE_GENERAL,
         CustomItem(Material.NETHERITE_SWORD, "物品拓展 - 工具和武器装备")
     )
     val IE_RESOURCE_STUFF = SubCategory(
-        NamespacedKey(SlimefunItemExpansion.plugin, "IE_RESOURCE_STUFF"),
+        "IE_RESOURCE_STUFF".toKey(),
         IE_GENERAL,
         CustomItem(OSGLOGLAS_INGOT, "物品拓展 - 材料")
     )
     val IE_FOOD_STUFF = SubCategory(
-        NamespacedKey(SlimefunItemExpansion.plugin, "IE_FOOD_STUFF"),
+        "IE_FOOD_STUFF".toKey(),
         IE_GENERAL,
         CustomItem(
             SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTQxMWNiNTRhYWExZTNkYjU1NWM3ODVmNmI3NWJlMWJmOGU2OGIyOGU1Y2ZjNTljOWE4NzY4OTRmNjFjZGMxNyJ9fX0="),
             "物品拓展 - 食物"
         )
     )
-
-    init {
-        ANDURIL.modifyMeta<ItemMeta> {
-            addAttributeModifier(
-                Attribute.GENERIC_MOVEMENT_SPEED,
-                AttributeModifier(
-                    UUID.randomUUID(),
-                    "放在主手加速0.02",
-                    0.02,
-                    AttributeModifier.Operation.ADD_NUMBER,
-                    EquipmentSlot.HAND
-                )
-            )
-            addAttributeModifier(
-                Attribute.GENERIC_ARMOR,
-                AttributeModifier(
-                    UUID.randomUUID(),
-                    "增加护甲值2",
-                    2.0,
-                    AttributeModifier.Operation.ADD_NUMBER,
-                    EquipmentSlot.HAND
-                )
-            )
-            addAttributeModifier(
-                Attribute.GENERIC_ARMOR_TOUGHNESS,
-                AttributeModifier(
-                    UUID.randomUUID(),
-                    "增加护甲韧性2",
-                    2.0,
-                    AttributeModifier.Operation.ADD_NUMBER,
-                    EquipmentSlot.HAND
-                )
-            )
-        }
-
-        SPEED_TORCH.modifyMeta<ItemMeta> {
-            addAttributeModifier(
-                Attribute.GENERIC_MOVEMENT_SPEED,
-                AttributeModifier(
-                    UUID.randomUUID(),
-                    "放在副手加速0.06",
-                    0.06,
-                    AttributeModifier.Operation.ADD_NUMBER,
-                    EquipmentSlot.OFF_HAND
-                )
-            )
-        }
-
-        LIGHTNING_WHIP.modifyMeta<ItemMeta> {
-            addAttributeModifier(
-                Attribute.GENERIC_ATTACK_SPEED,
-                AttributeModifier(
-                    UUID.randomUUID(),
-                    "加快攻速0.5",
-                    0.5,
-                    AttributeModifier.Operation.ADD_NUMBER,
-                    EquipmentSlot.OFF_HAND
-                )
-            )
-            addAttributeModifier(
-                Attribute.GENERIC_ATTACK_DAMAGE,
-                AttributeModifier(
-                    UUID.randomUUID(),
-                    "增加伤害1",
-                    1.0,
-                    AttributeModifier.Operation.ADD_NUMBER,
-                    EquipmentSlot.OFF_HAND
-                )
-            )
-            addAttributeModifier(
-                Attribute.GENERIC_MAX_HEALTH,
-                AttributeModifier(
-                    UUID.randomUUID(),
-                    "增加最大血量2",
-                    2.0,
-                    AttributeModifier.Operation.ADD_NUMBER,
-                    EquipmentSlot.OFF_HAND
-                )
-            )
-        }
-    }
 }

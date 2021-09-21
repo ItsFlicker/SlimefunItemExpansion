@@ -18,6 +18,8 @@ import taboolib.platform.util.buildItem
 class CobblestoneGenerator(category: Category, item: SlimefunItemStack, recipeType: RecipeType, recipe: Array<ItemStack?>) :
     AContainer(category, item, recipeType, recipe) {
 
+    private val progressItem = buildItem(XMaterial.BLACK_STAINED_GLASS_PANE) { name = " " }
+
     override fun getProgressBar(): ItemStack {
         return ItemStack(Material.STONE_PICKAXE)
     }
@@ -37,7 +39,7 @@ class CobblestoneGenerator(category: Category, item: SlimefunItemStack, recipeTy
                     machineProcessor.updateProgressBar(inv, 22, currentOperation)
                     currentOperation.addProgress(1)
                 } else {
-                    inv.replaceExistingItem(22, buildItem(XMaterial.BLACK_STAINED_GLASS_PANE) { name = " " })
+                    inv.replaceExistingItem(22, progressItem)
 
                     currentOperation.results.forEach {
                         inv.pushItem(it.clone(), *outputSlots)
@@ -47,20 +49,27 @@ class CobblestoneGenerator(category: Category, item: SlimefunItemStack, recipeTy
                 }
             }
         } else {
-            val r = MachineRecipe(5, emptyArray(), arrayOf(ItemStack(Material.COBBLESTONE)))
-
-            if (outputSlots.all {
-                    inv.getItemInSlot(it) != null && inv.getItemInSlot(it).amount >= inv.getItemInSlot(it).maxStackSize
-            }) return
+            if (outputSlots.all { inv.getItemInSlot(it) != null && inv.getItemInSlot(it).amount >= inv.getItemInSlot(it).maxStackSize }) {
+                return
+            }
 
             machineProcessor.startOperation(
                 b,
-                (CraftingOperation::class.java.unsafeInstance() as CraftingOperation).also {
-                    it.setProperty("ingredients", r.input)
-                    it.setProperty("results", r.output)
-                    it.setProperty("totalTicks", r.ticks)
-                }
+                craftingOperation
             )
+        }
+    }
+
+    companion object {
+
+        val craftingOperation by lazy {
+            val r = MachineRecipe(5, emptyArray(), arrayOf(ItemStack(Material.COBBLESTONE)))
+
+            (CraftingOperation::class.java.unsafeInstance() as CraftingOperation).also {
+                it.setProperty("ingredients", r.input)
+                it.setProperty("results", r.output)
+                it.setProperty("totalTicks", r.ticks)
+            }
         }
     }
 }

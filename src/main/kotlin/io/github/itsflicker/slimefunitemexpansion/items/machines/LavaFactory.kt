@@ -21,6 +21,6 @@ class LavaFactory(category: Category, item: SlimefunItemStack, recipeType: Recip
     }
 
     public override fun registerDefaultRecipes() {
-        this.registerRecipe(25, arrayOf(ItemStack(Material.BUCKET)), arrayOf(ItemStack(Material.LAVA_BUCKET)))
+        this.registerRecipe(30, arrayOf(ItemStack(Material.BUCKET)), arrayOf(ItemStack(Material.LAVA_BUCKET)))
     }
 }

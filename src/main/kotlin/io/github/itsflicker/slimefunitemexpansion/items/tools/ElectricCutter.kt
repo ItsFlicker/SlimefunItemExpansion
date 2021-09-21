@@ -53,6 +53,6 @@ class ElectricCutter(category: Category, item: SlimefunItemStack, recipeType: Re
 
     companion object {
 
-        private const val COST: Float = 2F
+        private const val COST = 2F
     }
 }

@@ -12,9 +12,8 @@ import me.mrCookieSlime.Slimefun.cscorelib2.skull.SkullItem
 import org.bukkit.Material
 import org.bukkit.block.Block
 import org.bukkit.inventory.ItemStack
-import taboolib.common.platform.submit
+import taboolib.common.platform.function.submit
 import taboolib.common.util.random
-import java.util.*
 
 class TNTGenerator(category: Category, item: SlimefunItemStack, recipeType: RecipeType, recipe: Array<ItemStack?>) :
     AGenerator(category, item, recipeType, recipe) {

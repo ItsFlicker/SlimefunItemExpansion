@@ -1,16 +1,16 @@
 package io.github.itsflicker.slimefunitemexpansion
 
 import org.bukkit.entity.Player
-import taboolib.common.platform.CommandBody
-import taboolib.common.platform.CommandHeader
-import taboolib.common.platform.PermissionDefault
-import taboolib.common.platform.subCommand
+import taboolib.common.platform.command.CommandBody
+import taboolib.common.platform.command.CommandHeader
+import taboolib.common.platform.command.PermissionDefault
+import taboolib.common.platform.command.subCommand
 import taboolib.platform.util.sendLang
 
-@CommandHeader("slimefunitemexpansion", aliases = ["sfie"], permissionDefault = PermissionDefault.TRUE)
+@CommandHeader("slimefunitemexpansion", aliases = ["sfie"])
 object SFIECommands {
 
-    @CommandBody
+    @CommandBody(permissionDefault = PermissionDefault.TRUE)
     val rp = subCommand {
         execute<Player> { sender, _, _ ->
             for (entity in sender.passengers) {
