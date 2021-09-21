@@ -12,7 +12,7 @@ class LightningBow(category: Category, item: SlimefunItemStack, recipe: Array<It
     SlimefunBow(category, item, recipe) {
 
     override fun onShoot(): BowShootHandler {
-        return BowShootHandler { e: EntityDamageByEntityEvent, target: LivingEntity ->
+        return BowShootHandler { e, target ->
             if (!e.isCancelled) target.world.strikeLightning(target.location)
         }
     }
