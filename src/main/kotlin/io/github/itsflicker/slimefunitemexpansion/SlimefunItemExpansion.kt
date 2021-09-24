@@ -2,6 +2,7 @@ package io.github.itsflicker.slimefunitemexpansion
 
 import io.github.itsflicker.slimefunitemexpansion.tasks.*
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon
+import io.github.thebusybiscuit.slimefun4.core.services.CustomItemDataService
 import org.bukkit.plugin.java.JavaPlugin
 import taboolib.common.platform.*
 import taboolib.common.platform.function.info
@@ -12,6 +13,8 @@ import taboolib.platform.BukkitPlugin
 object SlimefunItemExpansion : Plugin(), SlimefunAddon {
 
     val plugin by lazy { BukkitPlugin.getInstance() }
+
+    val levelDataService by lazy { CustomItemDataService(plugin, "stored_level") }
 
     @Config(migrate = true)
     lateinit var config: SecuredFile

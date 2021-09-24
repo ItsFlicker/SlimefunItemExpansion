@@ -422,12 +422,14 @@ object IEItems {
     val COMPRESSED_EXP_BLOCK_2 = SlimefunItemStack("COMPRESSED_EXP_BLOCK_2", buildItem(XMaterial.EMERALD_BLOCK) { shiny() }, "§a二重压缩经验方块")
     val EXP_CONVERTER = SlimefunItemStack(
         "EXP_CONVERTER",
-        Material.EMERALD,
-        "§a§l经验之书§7(§4暂时不能使用§7)",
+        buildItem(XMaterial.EMERALD) { shiny() },
+        "§a§l经验之书",
         "§e右键存入一级经验",
         "§eShift+右键取出一级经验",
-        "§6已存储: 0级"
-    )
+        "§6已存储等级: 0"
+    ).also {
+        SlimefunItemExpansion.levelDataService.setItemData(it, "0")
+    }
     val MEMORY_128B = SlimefunItemStack(
         "MEMORY_128B",
         SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjYwYjAwNGYzNjBlMjg4NTVjY2YxMjM1YzJiZGVhMGEyOTk3YjBiYzAzMjU4ZTJkYzI0YWI4YTI1NzBhZWE2In19fQ=="),

@@ -20,6 +20,7 @@ item-woft-use:
   - '§4由于你错误的使用方式，时间洪流怀表爆炸了！'
   - '§e幸运的是，时间洪流怀表的部分材料没有被炸坏...'
   - '§2你应该先看看教程再来使用的：https://www.bilibili.com/video/BV1GJ411x7h7'
+item-expconverter-full: '§c经验之书已满!'
 
 command-succeed-dismount:
   - type: actionbar

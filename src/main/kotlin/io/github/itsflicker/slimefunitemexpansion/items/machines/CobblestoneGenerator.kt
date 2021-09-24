@@ -34,7 +34,6 @@ class CobblestoneGenerator(category: Category, item: SlimefunItemStack, recipeTy
 
         if (currentOperation != null) {
             if (takeCharge(b.location)) {
-
                 if (!currentOperation.isFinished) {
                     machineProcessor.updateProgressBar(inv, 22, currentOperation)
                     currentOperation.addProgress(1)
@@ -49,27 +48,20 @@ class CobblestoneGenerator(category: Category, item: SlimefunItemStack, recipeTy
                 }
             }
         } else {
+            val r = MachineRecipe(6, emptyArray(), arrayOf(ItemStack(Material.COBBLESTONE)))
+
             if (outputSlots.all { inv.getItemInSlot(it) != null && inv.getItemInSlot(it).amount >= inv.getItemInSlot(it).maxStackSize }) {
                 return
             }
 
             machineProcessor.startOperation(
                 b,
-                craftingOperation
+                (CraftingOperation::class.java.unsafeInstance() as CraftingOperation).also {
+                    it.setProperty("ingredients", r.input)
+                    it.setProperty("results", r.output)
+                    it.setProperty("totalTicks", r.ticks)
+                }
             )
-        }
-    }
-
-    companion object {
-
-        val craftingOperation by lazy {
-            val r = MachineRecipe(5, emptyArray(), arrayOf(ItemStack(Material.COBBLESTONE)))
-
-            (CraftingOperation::class.java.unsafeInstance() as CraftingOperation).also {
-                it.setProperty("ingredients", r.input)
-                it.setProperty("results", r.output)
-                it.setProperty("totalTicks", r.ticks)
-            }
         }
     }
 }

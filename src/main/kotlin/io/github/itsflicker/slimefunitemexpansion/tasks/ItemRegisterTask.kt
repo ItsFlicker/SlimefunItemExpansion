@@ -30,7 +30,12 @@ import org.bukkit.inventory.EquipmentSlot
 import org.bukkit.inventory.ItemStack
 import org.bukkit.potion.PotionEffect
 import org.bukkit.potion.PotionEffectType
+import taboolib.common.platform.function.adaptPlayer
+import taboolib.common.platform.function.info
 import taboolib.common.util.random
+import taboolib.common5.Level
+import taboolib.module.lang.sendLang
+import taboolib.platform.util.modifyLore
 import taboolib.platform.util.sendLang
 
 object ItemRegisterTask {
@@ -133,6 +138,13 @@ object ItemRegisterTask {
                 IEItems.ENRICHED_ALLOY, IEItems.BASIC_CONTROL_CIRCUIT, IEItems.ENRICHED_ALLOY
             )
         )
+        IEItems.ARTIFICIAL_DRAGON_BREATH.regUsableInWorkbenchItem(
+            IEItems.IE_RESOURCE_STUFF, RecipeType.ANCIENT_ALTAR, arrayOf(
+                SlimefunItems.MAGICAL_GLASS, SlimefunItems.ENDER_RUNE, SlimefunItems.MAGICAL_GLASS,
+                SlimefunItems.ENDER_RUNE, SlimefunItems.STRANGE_NETHER_GOO, SlimefunItems.ENDER_RUNE,
+                SlimefunItems.MAGICAL_GLASS, SlimefunItems.ENDER_RUNE, SlimefunItems.MAGICAL_GLASS
+            )
+        )
 
         // 杂项
         IEItems.WOFT.regItem(
@@ -176,25 +188,51 @@ object ItemRegisterTask {
             ),
             null, null, null, null
         )).register(SlimefunItemExpansion)
-        /* TODO
-        IEItems.COMPRESSED_EXP_BLOCK.regNonPlaceableItem(IEItems.IE_MISC_STUFF, RecipeType.ENHANCED_CRAFTING_TABLE, arrayOf(
-            SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE, SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE, SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE,
-            SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE, SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE, SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE,
-            SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE, SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE, SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE
-        ))
-        IEItems.COMPRESSED_EXP_BLOCK_2.regNonPlaceableItem(IEItems.IE_MISC_STUFF, RecipeType.ENHANCED_CRAFTING_TABLE, arrayOf(
-            IEItems.COMPRESSED_EXP_BLOCK, IEItems.COMPRESSED_EXP_BLOCK, IEItems.COMPRESSED_EXP_BLOCK,
-            IEItems.COMPRESSED_EXP_BLOCK, IEItems.COMPRESSED_EXP_BLOCK, IEItems.COMPRESSED_EXP_BLOCK,
-            IEItems.COMPRESSED_EXP_BLOCK, IEItems.COMPRESSED_EXP_BLOCK, IEItems.COMPRESSED_EXP_BLOCK
-        ))
-        IEItems.EXP_CONVERTER.regItem(
-            IEItems.IE_ATW_STUFF, RecipeType.MAGIC_WORKBENCH, arrayOf(
-                SlimefunItems.MAGICAL_GLASS, IEItems.COMPRESSED_EXP_BLOCK_2, SlimefunItems.MAGICAL_GLASS,
-                SlimefunItems.ENDER_LUMP_3, IEItems.STONE_TANK, SlimefunItems.ENDER_LUMP_3,
-                SlimefunItems.MAGICAL_GLASS, IEItems.COMPRESSED_EXP_BLOCK_2, SlimefunItems.MAGICAL_GLASS
-            )
-        )
-         */
+
+//        IEItems.COMPRESSED_EXP_BLOCK.regNonPlaceableItem(IEItems.IE_MISC_STUFF, RecipeType.ENHANCED_CRAFTING_TABLE, arrayOf(
+//            SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE, SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE, SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE,
+//            SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE, SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE, SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE,
+//            SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE, SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE, SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE
+//        ))
+//        IEItems.COMPRESSED_EXP_BLOCK_2.regNonPlaceableItem(IEItems.IE_MISC_STUFF, RecipeType.ENHANCED_CRAFTING_TABLE, arrayOf(
+//            IEItems.COMPRESSED_EXP_BLOCK, IEItems.COMPRESSED_EXP_BLOCK, IEItems.COMPRESSED_EXP_BLOCK,
+//            IEItems.COMPRESSED_EXP_BLOCK, IEItems.COMPRESSED_EXP_BLOCK, IEItems.COMPRESSED_EXP_BLOCK,
+//            IEItems.COMPRESSED_EXP_BLOCK, IEItems.COMPRESSED_EXP_BLOCK, IEItems.COMPRESSED_EXP_BLOCK
+//        ))
+//        IEItems.EXP_CONVERTER.regItem(
+//            IEItems.IE_ATW_STUFF, RecipeType.MAGIC_WORKBENCH, arrayOf(
+//                SlimefunItems.MAGICAL_GLASS, IEItems.COMPRESSED_EXP_BLOCK_2, SlimefunItems.MAGICAL_GLASS,
+//                SlimefunItems.ENDER_LUMP_3, IEItems.STONE_TANK, SlimefunItems.ENDER_LUMP_3,
+//                SlimefunItems.MAGICAL_GLASS, IEItems.COMPRESSED_EXP_BLOCK_2, SlimefunItems.MAGICAL_GLASS
+//            ), ItemUseHandler {
+//                val player = adaptPlayer(it.player)
+//                val item = it.item
+//                val level = SlimefunItemExpansion.levelDataService.getItemData(item).get().toInt()
+//                val playerExp = Level.getTotalExperience(player)
+//                if (player.isSneaking) {
+//                    if (level > 0) {
+//                        Level.setTotalExperience(player, playerExp + Level.getExpAtLevel(level))
+//                        SlimefunItemExpansion.levelDataService.setItemData(item, (level-1).toString())
+//                        item.modifyLore {
+//                            set(2, "§6已存储等级: ${level-1}")
+//                        }
+//                    }
+//                } else {
+//                    if (level >= 50) {
+//                        player.sendLang("exp_converter_full")
+//                        return@ItemUseHandler
+//                    }
+//                    val exp = Level.getExpAtLevel(level + 1)
+//                    if (playerExp >= exp) {
+//                        Level.setTotalExperience(player, playerExp - exp)
+//                        SlimefunItemExpansion.levelDataService.setItemData(item, (level+1).toString())
+//                        item.modifyLore {
+//                            set(2, "§6已存储等级: ${level+1}")
+//                        }
+//                    }
+//                }
+//            }
+//        )
 
         // 工具和武器装备
         IEItems.LIGHTNING_WHIP.regItem(

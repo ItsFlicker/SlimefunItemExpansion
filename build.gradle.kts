@@ -7,7 +7,7 @@ plugins {
 taboolib {
     description {
         contributors {
-            name("wlys")
+            name("ItsFlicker")
         }
         dependencies {
             name("Slimefun")
