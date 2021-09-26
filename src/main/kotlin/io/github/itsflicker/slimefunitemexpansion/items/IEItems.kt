@@ -370,7 +370,7 @@ object IEItems {
     )
     val CARBONADO_DRILL = SlimefunItemStack(
         "CARBONADO_DRILL",
-        buildItem(XMaterial.DIAMOND_PICKAXE) { enchants[Enchantment.DIG_SPEED] = 3;isUnbreakable = true },
+        buildItem(XMaterial.DIAMOND_PICKAXE) { enchants[Enchantment.DIG_SPEED] = 7;isUnbreakable = true },
         "&9手钻 &7- &eVII",
         "",
         LoreBuilder.material("黑金刚石"),

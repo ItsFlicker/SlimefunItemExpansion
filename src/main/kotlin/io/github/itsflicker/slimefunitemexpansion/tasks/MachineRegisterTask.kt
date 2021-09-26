@@ -83,7 +83,7 @@ object MachineRegisterTask {
         LavaFactory(IEItems.IE_MACHINES_STUFF, IEItems.LAVA_FACTORY, RecipeType.ENHANCED_CRAFTING_TABLE, arrayOf(
             IEItems.OSGLOGLAS_INGOT, IEItems.ADVANCED_CONTROL_CIRCUIT, IEItems.OSGLOGLAS_INGOT,
             SlimefunItems.LAVA_CRYSTAL, IEItems.MACHINE_BLOCK, SlimefunItems.LAVA_CRYSTAL,
-            SlimefunItems.HARDENED_METAL_INGOT, SlimefunItems.LAVA_CRYSTAL, SlimefunItems.HARDENED_METAL_INGOT
+            SlimefunItems.HEATING_COIL, SlimefunItems.LAVA_CRYSTAL, SlimefunItems.HEATING_COIL
         )).setCapacity(512)
             .setEnergyConsumption(40)
             .setProcessingSpeed(1)
