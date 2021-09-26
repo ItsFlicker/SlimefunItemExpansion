@@ -57,13 +57,13 @@ object ResearchRegisterTask {
             "COBBLESTONE_GENERATOR_R".toKey(),
             1008610, "造石机", 25
         ).addItems(IEItems.COBBLESTONE_GENERATOR, IEItems.COBBLESTONE_GENERATOR_2).register()
-//        Research(
-//            "ADVANCED_EXP_R".toKey(),
-//            1008611, "新型经验技术", 30
-//        ).addItems(
-//            IEItems.COMPRESSED_EXP_BLOCK, IEItems.COMPRESSED_EXP_BLOCK_2,
-//            IEItems.EXP_CONVERTER
-//        ).register()
+        Research(
+            "ADVANCED_EXP_R".toKey(),
+            1008611, "新型经验技术", 30
+        ).addItems(
+            IEItems.COMPRESSED_EXP_BLOCK, IEItems.COMPRESSED_EXP_BLOCK_2,
+            /*IEItems.EXP_CONVERTER*/
+        ).register()
         Research(
             "SPEED_TORCH_R".toKey(),
             1008612, "加速火把", 15

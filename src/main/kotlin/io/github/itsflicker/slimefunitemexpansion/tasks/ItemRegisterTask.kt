@@ -166,9 +166,7 @@ object ItemRegisterTask {
             player.location.world!!.dropItem(player.location, ItemStack(Material.ENDER_PEARL, 2))
             player.location.world!!.dropItem(player.location, ItemStack(Material.DIAMOND, 1))
             player.location.world!!.dropItem(player.location, ItemStack(Material.GOLD_INGOT, 1))
-            player.sendMessage("§4由于你错误的使用方式，时间洪流怀表爆炸了！")
-            player.sendMessage("§e幸运的是，时间洪流怀表的部分材料没有被炸坏...")
-            player.sendMessage("§2你应该先看看教程再来使用的：https://www.bilibili.com/video/BV1GJ411x7h7")
+            player.sendLang("item-woft-use")
         })
         MouseTail(IEItems.IE_MISC_STUFF, IEItems.MOUSE_TAIL, RecipeType.MOB_DROP, arrayOf(
             null, null, null, null,
@@ -189,16 +187,16 @@ object ItemRegisterTask {
             null, null, null, null
         )).register(SlimefunItemExpansion)
 
-//        IEItems.COMPRESSED_EXP_BLOCK.regNonPlaceableItem(IEItems.IE_MISC_STUFF, RecipeType.ENHANCED_CRAFTING_TABLE, arrayOf(
-//            SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE, SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE, SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE,
-//            SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE, SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE, SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE,
-//            SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE, SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE, SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE
-//        ))
-//        IEItems.COMPRESSED_EXP_BLOCK_2.regNonPlaceableItem(IEItems.IE_MISC_STUFF, RecipeType.ENHANCED_CRAFTING_TABLE, arrayOf(
-//            IEItems.COMPRESSED_EXP_BLOCK, IEItems.COMPRESSED_EXP_BLOCK, IEItems.COMPRESSED_EXP_BLOCK,
-//            IEItems.COMPRESSED_EXP_BLOCK, IEItems.COMPRESSED_EXP_BLOCK, IEItems.COMPRESSED_EXP_BLOCK,
-//            IEItems.COMPRESSED_EXP_BLOCK, IEItems.COMPRESSED_EXP_BLOCK, IEItems.COMPRESSED_EXP_BLOCK
-//        ))
+        IEItems.COMPRESSED_EXP_BLOCK.regNonPlaceableItem(IEItems.IE_MISC_STUFF, RecipeType.ENHANCED_CRAFTING_TABLE, arrayOf(
+            SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE, SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE, SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE,
+            SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE, SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE, SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE,
+            SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE, SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE, SlimefunItems.FILLED_FLASK_OF_KNOWLEDGE
+        ))
+        IEItems.COMPRESSED_EXP_BLOCK_2.regNonPlaceableItem(IEItems.IE_MISC_STUFF, RecipeType.ENHANCED_CRAFTING_TABLE, arrayOf(
+            IEItems.COMPRESSED_EXP_BLOCK, IEItems.COMPRESSED_EXP_BLOCK, IEItems.COMPRESSED_EXP_BLOCK,
+            IEItems.COMPRESSED_EXP_BLOCK, IEItems.COMPRESSED_EXP_BLOCK, IEItems.COMPRESSED_EXP_BLOCK,
+            IEItems.COMPRESSED_EXP_BLOCK, IEItems.COMPRESSED_EXP_BLOCK, IEItems.COMPRESSED_EXP_BLOCK
+        ))
 //        IEItems.EXP_CONVERTER.regItem(
 //            IEItems.IE_ATW_STUFF, RecipeType.MAGIC_WORKBENCH, arrayOf(
 //                SlimefunItems.MAGICAL_GLASS, IEItems.COMPRESSED_EXP_BLOCK_2, SlimefunItems.MAGICAL_GLASS,
@@ -382,9 +380,9 @@ object ItemRegisterTask {
             500F).register(SlimefunItemExpansion)
         IEItems.REINFORCED_SHIELD.regItem(
             IEItems.IE_ATW_STUFF, RecipeType.ENHANCED_CRAFTING_TABLE, arrayOf(
-                IEItems.OSGLOGLAS_INGOT, SlimefunItems.REINFORCED_PLATE, IEItems.OSGLOGLAS_INGOT,
-                IEItems.OSGLOGLAS_INGOT, IEItems.OSGLOGLAS_INGOT, IEItems.OSGLOGLAS_INGOT,
-                null, IEItems.OSGLOGLAS_INGOT, null
+                SlimefunItems.REINFORCED_PLATE, IEItems.OSGLOGLAS_INGOT, SlimefunItems.REINFORCED_PLATE,
+                SlimefunItems.REINFORCED_PLATE, SlimefunItems.REINFORCED_PLATE, SlimefunItems.REINFORCED_PLATE,
+                null, SlimefunItems.REINFORCED_PLATE, null
             )
         )
         ElectricCutter(IEItems.IE_ATW_STUFF, IEItems.ELECTRIC_CUTTER, RecipeType.ENHANCED_CRAFTING_TABLE, arrayOf(
