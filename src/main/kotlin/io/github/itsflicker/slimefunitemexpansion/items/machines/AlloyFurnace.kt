@@ -2,18 +2,18 @@ package io.github.itsflicker.slimefunitemexpansion.items.machines
 
 import io.github.itsflicker.slimefunitemexpansion.items.IEItems
 import io.github.itsflicker.slimefunitemexpansion.util.toKey
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
-import me.mrCookieSlime.Slimefun.Lists.RecipeType
-import me.mrCookieSlime.Slimefun.Objects.Category
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.AContainer
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack
-import me.mrCookieSlime.Slimefun.cscorelib2.item.CustomItem
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 
-class AlloyFurnace(category: Category, item: SlimefunItemStack, recipeType: RecipeType, recipe: Array<ItemStack?>) :
-    AContainer(category, item, recipeType, recipe), RecipeDisplayItem {
+class AlloyFurnace(itemGroup: ItemGroup, item: SlimefunItemStack, recipeType: RecipeType, recipe: Array<ItemStack?>) :
+    AContainer(itemGroup, item, recipeType, recipe), RecipeDisplayItem {
 
     override fun getProgressBar(): ItemStack {
         return ItemStack(Material.FLINT_AND_STEEL)
@@ -27,7 +27,7 @@ class AlloyFurnace(category: Category, item: SlimefunItemStack, recipeType: Reci
         this.registerRecipe(
             1,
             arrayOf<ItemStack>(
-                CustomItem(
+                CustomItemStack(
                     Material.KNOWLEDGE_BOOK,
                     "§b配方表",
                     "§b1圆石齿轮+1铁锭=1铁齿轮",

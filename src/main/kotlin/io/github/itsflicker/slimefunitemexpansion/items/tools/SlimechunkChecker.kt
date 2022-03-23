@@ -1,16 +1,16 @@
 package io.github.itsflicker.slimefunitemexpansion.items.tools
 
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.core.attributes.Rechargeable
 import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler
-import me.mrCookieSlime.Slimefun.Lists.RecipeType
-import me.mrCookieSlime.Slimefun.Objects.Category
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack
 import org.bukkit.inventory.ItemStack
 import taboolib.platform.util.sendLang
 
-class SlimechunkChecker(category: Category, item: SlimefunItemStack, recipeType: RecipeType, recipe: Array<ItemStack?>, private val capacity: Float) :
-    SlimefunItem(category, item, recipeType, recipe), Rechargeable {
+class SlimechunkChecker(itemGroup: ItemGroup, item: SlimefunItemStack, recipeType: RecipeType, recipe: Array<ItemStack?>, private val capacity: Float) :
+    SlimefunItem(itemGroup, item, recipeType, recipe), Rechargeable {
 
     override fun getMaxItemCharge(item: ItemStack): Float {
         return capacity

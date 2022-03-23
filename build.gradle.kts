@@ -1,6 +1,6 @@
 plugins {
     java
-    id("io.izzel.taboolib") version "1.27"
+    id("io.izzel.taboolib") version "1.34"
     id("org.jetbrains.kotlin.jvm") version "1.5.10"
 }
 
@@ -18,19 +18,19 @@ taboolib {
     install("module-lang")
     install("platform-bukkit")
     classifier = null
-    version = "6.0.3-2"
+    version = "6.0.7-44"
 }
 
 repositories {
     maven { url = uri("https://jitpack.io") }
     mavenCentral()
-    mavenLocal()
 }
 
 dependencies {
-    compileOnly("com.github.Slimefun:Slimefun4:RC-26")
-    compileOnly("ink.ptms.core:v11701:11701:mapped")
-    compileOnly("ink.ptms.core:v11701:11701:universal")
+    compileOnly("com.github.Slimefun:Slimefun4:RC-31")
+    compileOnly("ink.ptms.core:v11800:11800:api")
+    compileOnly("ink.ptms.core:v11800:11800:mapped")
+    compileOnly("ink.ptms.core:v11800:11800:universal")
     compileOnly(kotlin("stdlib"))
     compileOnly(fileTree("libs"))
 }

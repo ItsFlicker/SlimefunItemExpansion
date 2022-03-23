@@ -1,25 +1,25 @@
 package io.github.itsflicker.slimefunitemexpansion.items.machines
 
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
+import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config
-import me.mrCookieSlime.Slimefun.Lists.RecipeType
-import me.mrCookieSlime.Slimefun.Objects.Category
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.AGenerator
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.MachineFuel
 import me.mrCookieSlime.Slimefun.Objects.handlers.BlockTicker
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack
-import me.mrCookieSlime.Slimefun.cscorelib2.skull.SkullItem
 import org.bukkit.Material
 import org.bukkit.block.Block
 import org.bukkit.inventory.ItemStack
 import taboolib.common.platform.function.submit
 import taboolib.common.util.random
 
-class TNTGenerator(category: Category, item: SlimefunItemStack, recipeType: RecipeType, recipe: Array<ItemStack?>) :
-    AGenerator(category, item, recipeType, recipe) {
+class TNTGenerator(itemGroup: ItemGroup, item: SlimefunItemStack, recipeType: RecipeType, recipe: Array<ItemStack?>) :
+    AGenerator(itemGroup, item, recipeType, recipe) {
 
     override fun getProgressBar(): ItemStack {
-        return SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTI2ZTZlYjYyNDliYjEzOWM4MTIyODU2YmE0YzA4NTRlMTQwMGY3ZTA2MGYyM2UwYzQ0NWNhNTg2YjFhY2RiNSJ9fX0=")
+        return SlimefunUtils.getCustomHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTI2ZTZlYjYyNDliYjEzOWM4MTIyODU2YmE0YzA4NTRlMTQwMGY3ZTA2MGYyM2UwYzQ0NWNhNTg2YjFhY2RiNSJ9fX0=")
     }
 
     override fun registerDefaultFuelTypes() {

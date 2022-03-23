@@ -1,19 +1,17 @@
 package io.github.itsflicker.slimefunitemexpansion.items
 
-import io.github.itsflicker.slimefunitemexpansion.SlimefunItemExpansion
 import io.github.itsflicker.slimefunitemexpansion.util.toKey
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
+import io.github.thebusybiscuit.slimefun4.api.items.groups.NestedItemGroup
+import io.github.thebusybiscuit.slimefun4.api.items.groups.SubItemGroup
 import io.github.thebusybiscuit.slimefun4.core.attributes.MachineTier
 import io.github.thebusybiscuit.slimefun4.core.attributes.MachineType
-import io.github.thebusybiscuit.slimefun4.core.categories.MultiCategory
-import io.github.thebusybiscuit.slimefun4.core.categories.SubCategory
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack
 import io.github.thebusybiscuit.slimefun4.utils.HeadTexture
 import io.github.thebusybiscuit.slimefun4.utils.LoreBuilder
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack
-import me.mrCookieSlime.Slimefun.cscorelib2.item.CustomItem
-import me.mrCookieSlime.Slimefun.cscorelib2.skull.SkullItem
+import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils
 import org.bukkit.Color
 import org.bukkit.Material
-import org.bukkit.NamespacedKey
 import org.bukkit.attribute.Attribute
 import org.bukkit.attribute.AttributeModifier
 import org.bukkit.enchantments.Enchantment
@@ -35,12 +33,12 @@ object IEItems {
     //  用电器
     val MACHINE_BLOCK = SlimefunItemStack(
         "IE_MACHINE_BLOCK",
-        SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmRkZDRhMTJkYTFjYzJjOWY5ZDZjZDQ5ZmM3NzhlM2ExMWYzNzU3ZGU2ZGQzMTJkNzBhMGQ0Nzg4NTE4OWMwIn19fQ=="),
+        SlimefunUtils.getCustomHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmRkZDRhMTJkYTFjYzJjOWY5ZDZjZDQ5ZmM3NzhlM2ExMWYzNzU3ZGU2ZGQzMTJkNzBhMGQ0Nzg4NTE4OWMwIn19fQ=="),
         "§e钢制机壳"
     )
     val ALLOY_FURNACE = SlimefunItemStack(
         "IE_ALLOY_FURNACE",
-        SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWZiYjZlZWE1NzU0N2IyNTg4YmFmOGFmNjQ5ZDkxMTZmZjA4Y2FjNTZkZDIxNDBiM2M0OTU3Nzc5OWJhZDdjIn19fQ=="),
+        SlimefunUtils.getCustomHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWZiYjZlZWE1NzU0N2IyNTg4YmFmOGFmNjQ5ZDkxMTZmZjA4Y2FjNTZkZDIxNDBiM2M0OTU3Nzc5OWJhZDdjIn19fQ=="),
         "§4合金炉",
         "",
         LoreBuilder.machine(MachineTier.MEDIUM, MachineType.MACHINE),
@@ -50,7 +48,7 @@ object IEItems {
     )
     val COMPRESSED_FREEZER = SlimefunItemStack(
         "IE_COMPRESSED_FREEZER",
-        SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2VmNjVjZDUwYjg4NWI3MDVlNTU4ZTk1ODM2YTEyNDc3YWNjOGJhMzZlYWU1ODhiMjI1Njk0OTZjNzA0MzY4MCJ9fX0="),
+        SlimefunUtils.getCustomHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2VmNjVjZDUwYjg4NWI3MDVlNTU4ZTk1ODM2YTEyNDc3YWNjOGJhMzZlYWU1ODhiMjI1Njk0OTZjNzA0MzY4MCJ9fX0="),
         "§b四合一冰箱",
         "§e将水桶直接转换为反应堆冷却剂!",
         "",
@@ -61,7 +59,7 @@ object IEItems {
     )
     val COBBLESTONE_GENERATOR = SlimefunItemStack(
         "IE_COBBLESTONE_GENERATOR",
-        SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjVjOTc2MjcyOWQ0OGQwYTE2ZmU4OTU3M2JkZDJmYWY1MDE5NmZlYTE1ZDQ5YjVhNmJmZWE0ODliZTcxIn19fQ=="),
+        SlimefunUtils.getCustomHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjVjOTc2MjcyOWQ0OGQwYTE2ZmU4OTU3M2JkZDJmYWY1MDE5NmZlYTE1ZDQ5YjVhNmJmZWE0ODliZTcxIn19fQ=="),
         "§e造石机",
         "",
         LoreBuilder.machine(MachineTier.ADVANCED, MachineType.MACHINE),
@@ -71,7 +69,7 @@ object IEItems {
     )
     val COBBLESTONE_GENERATOR_2 = SlimefunItemStack(
         "IE_COBBLESTONE_GENERATOR_2",
-        SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjVjOTc2MjcyOWQ0OGQwYTE2ZmU4OTU3M2JkZDJmYWY1MDE5NmZlYTE1ZDQ5YjVhNmJmZWE0ODliZTcxIn19fQ=="),
+        SlimefunUtils.getCustomHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjVjOTc2MjcyOWQ0OGQwYTE2ZmU4OTU3M2JkZDJmYWY1MDE5NmZlYTE1ZDQ5YjVhNmJmZWE0ODliZTcxIn19fQ=="),
         "§e造石机 §7- §eII",
         "",
         LoreBuilder.machine(MachineTier.END_GAME, MachineType.MACHINE),
@@ -81,7 +79,7 @@ object IEItems {
     )
     val METALLURGIC_INFUSER = SlimefunItemStack(
         "IE_METALLURGIC_INFUSER",
-        SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTQ4MzM3ZjdlZGUxNWMzYjJmOGRjNmE2M2JkOTI4NzRjZGY3NGVjODYyYjQxMThjN2UzNTU1OWNlOGI0ZCJ9fX0="),
+        SlimefunUtils.getCustomHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTQ4MzM3ZjdlZGUxNWMzYjJmOGRjNmE2M2JkOTI4NzRjZGY3NGVjODYyYjQxMThjN2UzNTU1OWNlOGI0ZCJ9fX0="),
         "§e冶金灌注机",
         "",
         LoreBuilder.machine(MachineTier.BASIC, MachineType.MACHINE),
@@ -113,7 +111,7 @@ object IEItems {
     )
     val TNT_GENERATOR = SlimefunItemStack(
         "IE_TNT_GENERATOR",
-        SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2FmNTk3NzZmMmYwMzQxMmM3YjU5NDdhNjNhMGNmMjgzZDUxZmU2NWFjNmRmN2YyZjg4MmUwODM0NDU2NWU5In19fQ=="),
+        SlimefunUtils.getCustomHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvM2FmNTk3NzZmMmYwMzQxMmM3YjU5NDdhNjNhMGNmMjgzZDUxZmU2NWFjNmRmN2YyZjg4MmUwODM0NDU2NWU5In19fQ=="),
         "§eTNT发电机",
         "",
         LoreBuilder.machine(MachineTier.MEDIUM, MachineType.GENERATOR),
@@ -122,7 +120,7 @@ object IEItems {
     )
     val HALITOSIS_GENERATOR = SlimefunItemStack(
         "IE_HALITOSIS_GENERATOR",
-        SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWM0NDA4ZTdlNGQzMTY0OGQ2MmM1MmU4OTQ3MTFhZTA4YWU4NTA1NTdmYWRlY2NjZDRmY2NmYmY3YjBkNDc0NCJ9fX0="),
+        SlimefunUtils.getCustomHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOWM0NDA4ZTdlNGQzMTY0OGQ2MmM1MmU4OTQ3MTFhZTA4YWU4NTA1NTdmYWRlY2NjZDRmY2NmYmY3YjBkNDc0NCJ9fX0="),
         "§e龙息发电机",
         "",
         LoreBuilder.machine(MachineTier.MEDIUM, MachineType.GENERATOR),
@@ -133,17 +131,17 @@ object IEItems {
     //  材料
     val WOODEN_GEAR = SlimefunItemStack(
         "WOODEN_GEAR",
-        SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTk2M2EyZmY3MDBkZDc0ZjI5NzlhNzU4ZWM1ZDNkODE5MGM1YWJlMTU1Yjc4NTIwNmYzZDMyNjk5NTE3YTMzYSJ9fX0="),
+        SlimefunUtils.getCustomHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTk2M2EyZmY3MDBkZDc0ZjI5NzlhNzU4ZWM1ZDNkODE5MGM1YWJlMTU1Yjc4NTIwNmYzZDMyNjk5NTE3YTMzYSJ9fX0="),
         "§e木齿轮"
     )
     val COBBLESTONE_GEAR = SlimefunItemStack(
         "COBBLESTONE_GEAR",
-        SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDc5MDEyZDFiZjljNzU3MTA3YjU5MTJiMDY4MzAyMGM1MWFjNDcyZTVjMjU3ZmE4NDQ2NWFkNWUxNDYyYjViYiJ9fX0="),
+        SlimefunUtils.getCustomHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDc5MDEyZDFiZjljNzU3MTA3YjU5MTJiMDY4MzAyMGM1MWFjNDcyZTVjMjU3ZmE4NDQ2NWFkNWUxNDYyYjViYiJ9fX0="),
         "§e圆石齿轮"
     )
     val IRON_GEAR = SlimefunItemStack(
         "IRON_GEAR",
-        SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmNiNGU0M2MyZjg1Nzc3MDVmM2VlMWM1NzBmYmJmNGUyN2ZkZTljM2RjMGU0NzI3MjFhYWE4YjA1Mzc3NWJlYiJ9fX0="),
+        SlimefunUtils.getCustomHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNmNiNGU0M2MyZjg1Nzc3MDVmM2VlMWM1NzBmYmJmNGUyN2ZkZTljM2RjMGU0NzI3MjFhYWE4YjA1Mzc3NWJlYiJ9fX0="),
         "§e铁齿轮"
     )
     val OSMIUM_INGOT = SlimefunItemStack("OSMIUM_INGOT", Material.IRON_INGOT, "§b锇锭")
@@ -157,7 +155,7 @@ object IEItems {
     )
     val STONE_TANK = SlimefunItemStack(
         "STONE_TANK",
-        SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjkxYjdiMjE3MjVmMTQ2ZDI5YzE5MmI3NDVkNzlkMjI2MDMyNjdjN2FkODkzYmFkZWI2NTQ2ZTc0NjYwMDA2MCJ9fX0="),
+        SlimefunUtils.getCustomHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjkxYjdiMjE3MjVmMTQ2ZDI5YzE5MmI3NDVkNzlkMjI2MDMyNjdjN2FkODkzYmFkZWI2NTQ2ZTc0NjYwMDA2MCJ9fX0="),
         "§e石制储罐"
     )
     val ENHANCED_GLOWSTONE = SlimefunItemStack("ENHANCED_GLOWSTONE", buildItem(XMaterial.BRICK) { shiny() }, "§e强化荧石锭")
@@ -168,7 +166,7 @@ object IEItems {
     val ENRICHED_ALLOY = SlimefunItemStack("IE_ENRICHED_ALLOY", buildItem(XMaterial.REDSTONE) { shiny() }, "§e富集合金")
     val GROW_CORE = SlimefunItemStack(
         "IE_GROW_CORE",
-        SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTNiMjI4ZjcwYTM1ZDBhYTMyMzUwNDY3ZDllOGMwOWFhZTlhZTBhZTA4NzVmZGM4YzMxMWE4NzZiZTE5MDcxNyJ9fX0="),
+        SlimefunUtils.getCustomHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZTNiMjI4ZjcwYTM1ZDBhYTMyMzUwNDY3ZDllOGMwOWFhZTlhZTBhZTA4NzVmZGM4YzMxMWE4NzZiZTE5MDcxNyJ9fX0="),
         "§a生长核心"
     )
     val ARTIFICIAL_DRAGON_BREATH = SlimefunItemStack("ARTIFICIAL_DRAGON_BREATH", Material.DRAGON_BREATH, "人造龙息")
@@ -180,7 +178,7 @@ object IEItems {
     val SHIT = SlimefunItemStack("SHIT", buildItem(XMaterial.BROWN_WOOL) { shiny() }, "§5棕色不明物体", "", LoreBuilder.hunger(-114514.0))
     val WJZ_RICE = SlimefunItemStack(
         "WJZ_RICE",
-        SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTk0Yzk1NDE0ZDkyN2Y3ZWQ4NmE0YWUxODA3N2RmNjY3OThlYTczNmRkYjVjYjQ5YWFkNzY5OWQ5MWRkMWVmMiJ9fX0="),
+        SlimefunUtils.getCustomHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTk0Yzk1NDE0ZDkyN2Y3ZWQ4NmE0YWUxODA3N2RmNjY3OThlYTczNmRkYjVjYjQ5YWFkNzY5OWQ5MWRkMWVmMiJ9fX0="),
         "§e王境泽的炒饭",
         "",
         LoreBuilder.hunger(1.5)
@@ -380,7 +378,7 @@ object IEItems {
     val WBP_BOOTS = SlimefunItemStack("WBP_BOOTS", buildItem(XMaterial.LEATHER_BOOTS) { color = Color.LIME;isUnbreakable = true }, "&2王八牌皮鞋")
     val SLIMECHUNK_CHECKER = SlimefunItemStack(
         "SLIMECHUNK_CHECKER",
-        SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDkzNGE5ZjVhYjE3ODlhN2Q4ZGQ5NmQzMjQ5M2NkYWNmZjU3N2Q4YzgxZTdiMjM5MTdkZmYyZTMyYmQwYmMxMCJ9fX0="),
+        SlimefunUtils.getCustomHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDkzNGE5ZjVhYjE3ODlhN2Q4ZGQ5NmQzMjQ5M2NkYWNmZjU3N2Q4YzgxZTdiMjM5MTdkZmYyZTMyYmQwYmMxMCJ9fX0="),
         "§a§l史莱姆区块检测器",
         "§9返回你所在的区块是否是史莱姆区块",
         "",
@@ -401,7 +399,7 @@ object IEItems {
     )
     val T_8848 = SlimefunItemStack(
         "T_8848",
-        SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTJjZTlhNDg4YTZlZTQ0N2ExYzg3NzllZDBmYzAwOWU1YWE4MDJlY2E5YWZjOWIwMmU1ZGE5NTRmM2QwODY3MCJ9fX0="),
+        SlimefunUtils.getCustomHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTJjZTlhNDg4YTZlZTQ0N2ExYzg3NzllZDBmYzAwOWU1YWE4MDJlY2E5YWZjOWIwMmU1ZGE5NTRmM2QwODY3MCJ9fX0="),
         "§e§l§n8848锇荧黑曜合金手机",
         "§b§o向沙雕的人士致敬"
     )
@@ -420,71 +418,71 @@ object IEItems {
     val HOPE_FLOWER = SlimefunItemStack("HOPE_FLOWER", buildItem(XMaterial.POPPY) { shiny() }, "希望之花", "§7所以说,不要停下来啊...")
     val COMPRESSED_EXP_BLOCK = SlimefunItemStack("COMPRESSED_EXP_BLOCK", Material.EMERALD_BLOCK, "§a压缩经验方块")
     val COMPRESSED_EXP_BLOCK_2 = SlimefunItemStack("COMPRESSED_EXP_BLOCK_2", buildItem(XMaterial.EMERALD_BLOCK) { shiny() }, "§a二重压缩经验方块")
-    val EXP_CONVERTER = SlimefunItemStack(
-        "EXP_CONVERTER",
-        buildItem(XMaterial.EMERALD) { shiny() },
-        "§a§l经验之书",
-        "§e右键存入一级经验",
-        "§eShift+右键取出一级经验",
-        "§6已存储等级: 0"
-    ).also {
-        SlimefunItemExpansion.levelDataService.setItemData(it, "0")
-    }
+//    val EXP_CONVERTER = SlimefunItemStack(
+//        "EXP_CONVERTER",
+//        buildItem(XMaterial.EMERALD) { shiny() },
+//        "§a§l经验之书",
+//        "§e右键存入一级经验",
+//        "§eShift+右键取出一级经验",
+//        "§6已存储等级: 0"
+//    ).also {
+//        SlimefunItemExpansion.levelDataService.setItemData(it, "0")
+//    }
     val MEMORY_128B = SlimefunItemStack(
         "MEMORY_128B",
-        SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjYwYjAwNGYzNjBlMjg4NTVjY2YxMjM1YzJiZGVhMGEyOTk3YjBiYzAzMjU4ZTJkYzI0YWI4YTI1NzBhZWE2In19fQ=="),
+        SlimefunUtils.getCustomHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjYwYjAwNGYzNjBlMjg4NTVjY2YxMjM1YzJiZGVhMGEyOTk3YjBiYzAzMjU4ZTJkYzI0YWI4YTI1NzBhZWE2In19fQ=="),
         "§e128B超小内存"
     )
     val CPU = SlimefunItemStack(
         "UNKNOWN_CPU",
-        SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDU2Yzk0NjE5MDMxMjMxNjhjZTY2N2VhZDdlYTU2YTUxNjEzMDk3MDQ5YmE2NDc4MzJiMzcyMmFmZmJlYjYzNiJ9fX0="),
+        SlimefunUtils.getCustomHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDU2Yzk0NjE5MDMxMjMxNjhjZTY2N2VhZDdlYTU2YTUxNjEzMDk3MDQ5YmE2NDc4MzJiMzcyMmFmZmJlYjYzNiJ9fX0="),
         "§eCPU"
     )
     val CAMERA_13 = SlimefunItemStack(
         "CAMERA_13",
-        SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDgwNjU0OGZhZTliZGQ5M2QzYmMxYzdkYTczNmI2OTVjZGYzZTcyYWU1NDFlOTJkNjA1N2I5NWI4NDI3In19fQ=="),
+        SlimefunUtils.getCustomHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDgwNjU0OGZhZTliZGQ5M2QzYmMxYzdkYTczNmI2OTVjZGYzZTcyYWU1NDFlOTJkNjA1N2I5NWI4NDI3In19fQ=="),
         "13像素超低清摄像头"
     )
     val COBWEB_SCREEN = SlimefunItemStack(
         "COBWEB_SCREEN",
-        SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGVmNWM3YjY5OGJmZjEyZmRiZTY2Mjk4ZDEwYWQyYjQzYzFlMWMwYmZmZjkwZDlmNWViNmVjNjMxMzhjNjE4In19fQ=="),
+        SlimefunUtils.getCustomHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGVmNWM3YjY5OGJmZjEyZmRiZTY2Mjk4ZDEwYWQyYjQzYzFlMWMwYmZmZjkwZDlmNWViNmVjNjMxMzhjNjE4In19fQ=="),
         "§e蛛网膜低清屏"
     )
     val MOUSE_TAIL = SlimefunItemStack("MOUSE_TAIL", Material.TWISTING_VINES, "§3耗子尾")
 
     //分类
-    private val IE_GENERAL = MultiCategory(
+    private val IE_GENERAL = NestedItemGroup(
         "IE_GENERAL".toKey(),
-        CustomItem(
-            SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjgxOWFjZGIyMzEzYzEyOWJmNmFkMzQ1MjhkNDJhZGU3YjlhMmRmNjI3N2FkODRlN2I3NTFjOWY4OTk1NmRkYiJ9fX0="),
+        CustomItemStack(
+            SlimefunUtils.getCustomHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNjgxOWFjZGIyMzEzYzEyOWJmNmFkMzQ1MjhkNDJhZGU3YjlhMmRmNjI3N2FkODRlN2I3NTFjOWY4OTk1NmRkYiJ9fX0="),
             "物品拓展"
         )
     )
-    val IE_MACHINES_STUFF = SubCategory(
+    val IE_MACHINES_STUFF = SubItemGroup(
         "IE_MACHINES_STUFF".toKey(),
         IE_GENERAL,
-        CustomItem(MACHINE_BLOCK, "物品拓展 - 机械")
+        CustomItemStack(MACHINE_BLOCK, "物品拓展 - 机械")
     )
-    val IE_MISC_STUFF = SubCategory(
+    val IE_MISC_STUFF = SubItemGroup(
         "IE_MISC_STUFF".toKey(),
         IE_GENERAL,
-        CustomItem(Material.BUCKET, "物品拓展 - 杂项")
+        CustomItemStack(Material.BUCKET, "物品拓展 - 杂项")
     )
-    val IE_ATW_STUFF = SubCategory(
+    val IE_ATW_STUFF = SubItemGroup(
         "IE_TOOLSANDWEAPONS_STUFF".toKey(),
         IE_GENERAL,
-        CustomItem(Material.NETHERITE_SWORD, "物品拓展 - 工具和武器装备")
+        CustomItemStack(Material.NETHERITE_SWORD, "物品拓展 - 工具和武器装备")
     )
-    val IE_RESOURCE_STUFF = SubCategory(
+    val IE_RESOURCE_STUFF = SubItemGroup(
         "IE_RESOURCE_STUFF".toKey(),
         IE_GENERAL,
-        CustomItem(OSGLOGLAS_INGOT, "物品拓展 - 材料")
+        CustomItemStack(OSGLOGLAS_INGOT, "物品拓展 - 材料")
     )
-    val IE_FOOD_STUFF = SubCategory(
+    val IE_FOOD_STUFF = SubItemGroup(
         "IE_FOOD_STUFF".toKey(),
         IE_GENERAL,
-        CustomItem(
-            SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTQxMWNiNTRhYWExZTNkYjU1NWM3ODVmNmI3NWJlMWJmOGU2OGIyOGU1Y2ZjNTljOWE4NzY4OTRmNjFjZGMxNyJ9fX0="),
+        CustomItemStack(
+            SlimefunUtils.getCustomHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTQxMWNiNTRhYWExZTNkYjU1NWM3ODVmNmI3NWJlMWJmOGU2OGIyOGU1Y2ZjNTljOWE4NzY4OTRmNjFjZGMxNyJ9fX0="),
             "物品拓展 - 食物"
         )
     )

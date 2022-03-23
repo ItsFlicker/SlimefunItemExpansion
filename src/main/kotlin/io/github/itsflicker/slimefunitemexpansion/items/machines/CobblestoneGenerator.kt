@@ -1,12 +1,12 @@
 package io.github.itsflicker.slimefunitemexpansion.items.machines
 
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.implementation.operations.CraftingOperation
-import me.mrCookieSlime.Slimefun.Lists.RecipeType
-import me.mrCookieSlime.Slimefun.Objects.Category
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.AContainer
 import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.MachineRecipe
 import me.mrCookieSlime.Slimefun.api.BlockStorage
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack
 import org.bukkit.Material
 import org.bukkit.block.Block
 import org.bukkit.inventory.ItemStack
@@ -15,8 +15,8 @@ import taboolib.common.reflect.Reflex.Companion.unsafeInstance
 import taboolib.library.xseries.XMaterial
 import taboolib.platform.util.buildItem
 
-class CobblestoneGenerator(category: Category, item: SlimefunItemStack, recipeType: RecipeType, recipe: Array<ItemStack?>) :
-    AContainer(category, item, recipeType, recipe) {
+class CobblestoneGenerator(itemGroup: ItemGroup, item: SlimefunItemStack, recipeType: RecipeType, recipe: Array<ItemStack?>) :
+    AContainer(itemGroup, item, recipeType, recipe) {
 
     private val progressItem = buildItem(XMaterial.BLACK_STAINED_GLASS_PANE) { name = " " }
 

@@ -3,8 +3,8 @@ package io.github.itsflicker.slimefunitemexpansion.tasks
 import io.github.itsflicker.slimefunitemexpansion.SlimefunItemExpansion
 import io.github.itsflicker.slimefunitemexpansion.items.IEItems
 import io.github.itsflicker.slimefunitemexpansion.items.machines.*
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
-import me.mrCookieSlime.Slimefun.Lists.RecipeType
 import org.bukkit.Material
 import org.bukkit.inventory.ItemStack
 

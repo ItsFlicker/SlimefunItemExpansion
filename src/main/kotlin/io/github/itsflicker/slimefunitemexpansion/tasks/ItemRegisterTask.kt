@@ -15,14 +15,12 @@ import io.github.itsflicker.slimefunitemexpansion.items.weapons.LightningBow
 import io.github.itsflicker.slimefunitemexpansion.util.addSmelteryRecipe
 import io.github.itsflicker.slimefunitemexpansion.util.regItem
 import io.github.itsflicker.slimefunitemexpansion.util.regNonPlaceableItem
-import io.github.itsflicker.slimefunitemexpansion.util.regUsableInWorkbenchItem
-import io.github.thebusybiscuit.slimefun4.api.events.PlayerRightClickEvent
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType
 import io.github.thebusybiscuit.slimefun4.core.handlers.EntityInteractHandler
 import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems
-import me.mrCookieSlime.Slimefun.Lists.RecipeType
-import me.mrCookieSlime.Slimefun.cscorelib2.item.CustomItem
-import me.mrCookieSlime.Slimefun.cscorelib2.skull.SkullItem
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack
+import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils
 import org.bukkit.Bukkit
 import org.bukkit.Material
 import org.bukkit.entity.Player
@@ -30,12 +28,7 @@ import org.bukkit.inventory.EquipmentSlot
 import org.bukkit.inventory.ItemStack
 import org.bukkit.potion.PotionEffect
 import org.bukkit.potion.PotionEffectType
-import taboolib.common.platform.function.adaptPlayer
-import taboolib.common.platform.function.info
 import taboolib.common.util.random
-import taboolib.common5.Level
-import taboolib.module.lang.sendLang
-import taboolib.platform.util.modifyLore
 import taboolib.platform.util.sendLang
 
 object ItemRegisterTask {
@@ -138,12 +131,13 @@ object ItemRegisterTask {
                 IEItems.ENRICHED_ALLOY, IEItems.BASIC_CONTROL_CIRCUIT, IEItems.ENRICHED_ALLOY
             )
         )
-        IEItems.ARTIFICIAL_DRAGON_BREATH.regUsableInWorkbenchItem(
+        IEItems.ARTIFICIAL_DRAGON_BREATH.regItem(
             IEItems.IE_RESOURCE_STUFF, RecipeType.ANCIENT_ALTAR, arrayOf(
                 SlimefunItems.MAGICAL_GLASS, SlimefunItems.ENDER_RUNE, SlimefunItems.MAGICAL_GLASS,
                 SlimefunItems.ENDER_RUNE, SlimefunItems.STRANGE_NETHER_GOO, SlimefunItems.ENDER_RUNE,
                 SlimefunItems.MAGICAL_GLASS, SlimefunItems.ENDER_RUNE, SlimefunItems.MAGICAL_GLASS
-            )
+            ),
+            usableInWorkbench = true
         )
 
         // 杂项
@@ -170,8 +164,8 @@ object ItemRegisterTask {
         })
         MouseTail(IEItems.IE_MISC_STUFF, IEItems.MOUSE_TAIL, RecipeType.MOB_DROP, arrayOf(
             null, null, null, null,
-            CustomItem(
-                SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGE5MWRhYjgzOTFhZjVmZGE1NGFjZDJjMGIxOGZiZDgxOWI4NjVlMWE4ZjFkNjIzODEzZmE3NjFlOTI0NTQwIn19fQ=="),
+            CustomItemStack(
+                SlimefunUtils.getCustomHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGE5MWRhYjgzOTFhZjVmZGE1NGFjZDJjMGIxOGZiZDgxOWI4NjVlMWE4ZjFkNjIzODEzZmE3NjFlOTI0NTQwIn19fQ=="),
                 "§aSilverfish",
                 "击杀蠹虫时有5%机率掉落"
             ),
@@ -179,8 +173,8 @@ object ItemRegisterTask {
         )).register(SlimefunItemExpansion)
         HopeFlower(IEItems.IE_MISC_STUFF, IEItems.HOPE_FLOWER, RecipeType.MOB_DROP, arrayOf(
             null, null, null, null,
-            CustomItem(
-                SkullItem.fromBase64("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDFiODMwZWI0MDgyYWNlYzgzNmJjODM1ZTQwYTExMjgyYmI1MTE5MzMxNWY5MTE4NDMzN2U4ZDM1NTU1ODMifX19"),
+            CustomItemStack(
+                SlimefunUtils.getCustomHead("eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDFiODMwZWI0MDgyYWNlYzgzNmJjODM1ZTQwYTExMjgyYmI1MTE5MzMxNWY5MTE4NDMzN2U4ZDM1NTU1ODMifX19"),
                 "§aVillager",
                 "击杀村民时有5%机率掉落"
             ),

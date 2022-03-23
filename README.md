@@ -8,6 +8,6 @@
 
 插件需求：
 - Spigot, Paper等Bukkit平台 1.16.x-1.17.x
-- Slimefun RC-21+
+- Slimefun RC-31+
 
 更多物品还在设计中!

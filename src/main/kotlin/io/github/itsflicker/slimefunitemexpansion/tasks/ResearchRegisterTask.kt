@@ -3,7 +3,7 @@ package io.github.itsflicker.slimefunitemexpansion.tasks
 import io.github.itsflicker.slimefunitemexpansion.items.IEItems
 import io.github.itsflicker.slimefunitemexpansion.items.resources.OsmiumDust
 import io.github.itsflicker.slimefunitemexpansion.util.toKey
-import io.github.thebusybiscuit.slimefun4.core.researching.Research
+import io.github.thebusybiscuit.slimefun4.api.researches.Research
 
 object ResearchRegisterTask {
 
