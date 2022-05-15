@@ -12,7 +12,7 @@ import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler
 import io.github.thebusybiscuit.slimefun4.implementation.items.SimpleSlimefunItem
 import org.bukkit.inventory.ItemStack
 
-class HopeFlower (itemGroup: ItemGroup, item: SlimefunItemStack, recipeType: RecipeType, recipe: Array<ItemStack?>) :
+class HopeFlower(itemGroup: ItemGroup, item: SlimefunItemStack, recipeType: RecipeType, recipe: Array<ItemStack?>) :
     SimpleSlimefunItem<ItemUseHandler>(itemGroup, item, recipeType, recipe), NotPlaceable, RandomMobDrop {
 
     private val dropSetting = ItemSetting(this, "drop-from-villagers", true)

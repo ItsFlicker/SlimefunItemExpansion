@@ -46,7 +46,7 @@ class OsmiumDust(itemGroup: ItemGroup) : SlimefunItem(itemGroup, OSMIUM_DUST, Re
     companion object {
 
         val OSMIUM_DUST by lazy {
-            SlimefunItemStack("OSMIUM_DUST", Material.SUGAR, "§6锇粉")
+            SlimefunItemStack("IE_OSMIUM_DUST", Material.SUGAR, "§6锇粉")
         }
     }
 }
